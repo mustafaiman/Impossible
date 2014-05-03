@@ -6,6 +6,7 @@
 
 package impossible;
 import gameplay.GameplayManager;
+import ui.ScreenManager;
 
 /**
  *
@@ -18,8 +19,7 @@ public class ImpossiblePark {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Deneemeeeeee");
-        System.out.println("Deneemeeeeee2");
+        ScreenManager frame = ScreenManager.getInstance();
     }
     
 }

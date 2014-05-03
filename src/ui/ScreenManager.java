@@ -10,6 +10,26 @@ package ui;
  *
  * @author Mustafa
  */
-public class ScreenManager {
+import javax.swing.JFrame;
+public class ScreenManager extends JFrame{
     
+    static ScreenManager instance = null;
+    private ScreenManager() {
+	
+	setSize(800,610);
+	setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		
+	MainMenuPanel mainMenuPanel = new MainMenuPanel(this);
+	add(mainMenuPanel);
+
+        pack();
+        setVisible(true);
+        setResizable(false);
+    }
+    public static ScreenManager getInstance()
+    {
+    	if(instance==null)
+    		instance = new ScreenManager();
+    	return instance;
+    }
 }
