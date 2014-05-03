@@ -28,7 +28,7 @@ local.properties
 # PDT-specific
 .buildpath
 
-
+nbproject/private/
 #################
 ## Visual Studio
 #################
