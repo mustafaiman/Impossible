@@ -5,6 +5,7 @@
  */
 
 package impossible;
+import gameplay.GameplayManager;
 
 /**
  *
