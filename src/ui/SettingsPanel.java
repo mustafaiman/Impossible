@@ -10,18 +10,22 @@ package ui;
  * @author Dilara
  */
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.Graphics;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-class SettingsPanel extends JPanel implements ActionListener {
+class SettingsPanel extends JPanel implements ActionListener,ChangeListener {
 
     ScreenManager frame;
-    private JButton okButton;
-    private JLabel titleLabel,queryLabel;
-    private JTextField nameField;
+    private JButton cancelButton,saveButton;
+    private JLabel titleLabel,volumeLabel,difficultyLabel;
+    private JRadioButton easy,medium,hard;
+    private ButtonGroup buttonGroup;
+    private JSlider volumeSlider;
 
     //constructor
     public SettingsPanel(ScreenManager frame) {
@@ -37,7 +41,7 @@ class SettingsPanel extends JPanel implements ActionListener {
         titleLabel = new JLabel();
         titleLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         titleLabel.setForeground(Color.YELLOW);
-        titleLabel.setText("Highscore!");
+        titleLabel.setText("Settings");
         ipanel1.add(titleLabel);
         ipanel1.add(Box.createVerticalGlue());
         add(ipanel1);
@@ -46,30 +50,61 @@ class SettingsPanel extends JPanel implements ActionListener {
         
         
         JPanel ipanel2 = new JPanel();
-        ipanel2.add(Box.createVerticalGlue());
-        queryLabel= new JLabel();
-        queryLabel.setText("Your name:");
-        ipanel2.add(queryLabel);
-        nameField = new JTextField(20);
-        ipanel2.add(nameField);
-        ipanel2.add(Box.createVerticalGlue());
+        volumeLabel= new JLabel();
+        volumeLabel.setText("Volume");
+        ipanel2.add(volumeLabel);
+        volumeSlider = new JSlider(JSlider.HORIZONTAL,0,100,25);
+        volumeSlider.addChangeListener(this);
+        ipanel2.add(volumeSlider);
         add(ipanel2);
         
+        JPanel ipanel4 = new JPanel();
+        difficultyLabel= new JLabel();
+        difficultyLabel.setText("Difficulty");
+        ipanel4.add(difficultyLabel);
+        easy = new JRadioButton("Easy");
+        easy.setActionCommand("easy");
+        easy.setSelected(true);
+        easy.addActionListener(this);
+        medium = new JRadioButton("Medium");
+        medium.setActionCommand("medium");
+        medium.addActionListener(this);
+        hard = new JRadioButton("Hard");
+        hard.setActionCommand("hard");
+        hard.addActionListener(this);
         
-        //button "Play Game" 
-        okButton = new JButton("OK");
-        okButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        okButton.setBackground(Color.YELLOW);
-        okButton.setForeground(new Color(0, 128, 0));
-        okButton.setFont(new Font("Verdana", Font.BOLD, 20));
-        okButton.setPreferredSize(new Dimension(70, 70));
-        okButton.addActionListener(this);
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(easy);
+        buttonGroup.add(medium);
+        buttonGroup.add(hard);
+        ipanel4.add(easy);
+        ipanel4.add(medium);
+        ipanel4.add(hard);
+        add(ipanel4);
         
-        add(okButton);
         
-        add(Box.createRigidArea(new Dimension(0,240)));
-
-        backGroundImage = Toolkit.getDefaultToolkit().getImage("images/newhighscore.jpg");
+        
+        JPanel ipanel3 = new JPanel();
+        
+        ipanel3.add(Box.createHorizontalGlue());
+        cancelButton = new JButton("Cancel");
+        cancelButton.setBackground(Color.YELLOW);
+        cancelButton.setForeground(new Color(0, 128, 0));
+        cancelButton.setFont(new Font("Verdana", Font.BOLD, 20));
+        cancelButton.addActionListener(this);
+        ipanel3.add(cancelButton);
+        
+        saveButton = new JButton("Save");
+        saveButton.setBackground(Color.YELLOW);
+        saveButton.setForeground(new Color(0, 128, 0));
+        saveButton.setFont(new Font("Verdana", Font.BOLD, 20));
+        saveButton.addActionListener(this);
+        
+        ipanel3.add(saveButton);
+        
+        
+        add(ipanel3);
+        
 
         setPreferredSize(new Dimension(730, 620));
 
@@ -79,30 +114,16 @@ class SettingsPanel extends JPanel implements ActionListener {
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(backGroundImage, 0, 0, null);
     }
 
     //following method listens the action
 
     public void actionPerformed(ActionEvent event) {
-        /*
-         if(event.getSource()==settingsButton){
-         frame.remove(this);
-         frame.add(new SettingsPanel(frame));
-         frame.repaint();
-         frame.setSize(700,610); 
-         }
-         if(event.getSource()==helpButton){
-         frame.remove(this);
-         frame.add(new HelpPanel(frame));
-         frame.repaint();
-         frame.setSize(700,610);
-         }
-         if(event.getSource()==creditsButton){
-         frame.remove(this);
-         frame.add(new CreditsPanel(frame));
-         frame.repaint();
-         frame.setSize(700,610);
-         } */
+        
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

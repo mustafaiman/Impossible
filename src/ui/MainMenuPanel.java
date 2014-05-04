@@ -106,13 +106,13 @@ class MainMenuPanel extends JPanel implements ActionListener {
          frame.add(new HighScoreStageSelectionPanel(frame));
          frame.repaint();
          frame.setSize(730,620);			
-         }/*
+         }
          if(event.getSource()==settingsButton){
          frame.remove(this);
          frame.add(new SettingsPanel(frame));
          frame.repaint();
          frame.setSize(700,610); 
-         }
+         }/*
          if(event.getSource()==helpButton){
          frame.remove(this);
          frame.add(new HelpPanel(frame));
