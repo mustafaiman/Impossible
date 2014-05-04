@@ -16,15 +16,16 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Graphics;
 
-class SettingsPanel extends JPanel implements ActionListener {
+class NewHighscorePanel extends JPanel implements ActionListener {
 
     ScreenManager frame;
+    protected Image backGroundImage = null;
     private JButton okButton;
     private JLabel titleLabel,queryLabel;
     private JTextField nameField;
 
     //constructor
-    public SettingsPanel(ScreenManager frame) {
+    public NewHighscorePanel(ScreenManager frame) {
         this.frame = frame;
 
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
