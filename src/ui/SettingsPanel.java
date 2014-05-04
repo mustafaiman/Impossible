@@ -26,6 +26,7 @@ class SettingsPanel extends JPanel implements ActionListener,ChangeListener {
     private JRadioButton easy,medium,hard;
     private ButtonGroup buttonGroup;
     private JSlider volumeSlider;
+    
 
     //constructor
     public SettingsPanel(ScreenManager frame) {
@@ -119,7 +120,13 @@ class SettingsPanel extends JPanel implements ActionListener,ChangeListener {
     //following method listens the action
 
     public void actionPerformed(ActionEvent event) {
-        
+        if(event.getSource()==cancelButton)
+        {
+            frame.remove(this);
+            frame.add(new MainMenuPanel(frame));
+            frame.repaint();
+            frame.setSize(730,620);
+        }
     }
 
     @Override
