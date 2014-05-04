@@ -56,19 +56,19 @@ class HighScoreStageSelectionPanel extends JPanel implements ActionListener {
         stage1Label.setText("Stage 1");
 
         stage2Label.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        stage2Label.setText("Stage 2");
+        stage2Label.setText("Stage 6");
 
         stage3Label.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
         stage3Label.setText("Stage 2");
 
         stage4Label.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        stage4Label.setText("Stage 2");
+        stage4Label.setText("Stage 5");
 
         stage5Label.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        stage5Label.setText("Stage 2");
+        stage5Label.setText("Stage 3");
 
         stage6Label.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        stage6Label.setText("Stage 2");
+        stage6Label.setText("Stage 4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,9 +91,9 @@ class HighScoreStageSelectionPanel extends JPanel implements ActionListener {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(stage4Button, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(stage6Button, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(stage5Button, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(21, 21, 21)
-                                .addComponent(stage5Button, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(stage6Button, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
