@@ -8,7 +8,7 @@ package ui;
 
 /**
  *
- * @author Mustafa
+ * @author Dilara
  */
 import javax.swing.JFrame;
 public class ScreenManager extends JFrame{

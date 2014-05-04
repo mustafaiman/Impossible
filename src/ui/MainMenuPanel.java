@@ -7,7 +7,7 @@ package ui;
 
 /**
  *
- * @author user
+ * @author Dilara
  */
 import java.awt.*;
 import java.awt.event.*;
@@ -81,7 +81,7 @@ class MainMenuPanel extends JPanel implements ActionListener {
 
         backGroundImage = Toolkit.getDefaultToolkit().getImage("images/CarPark.jpg");
 
-        setPreferredSize(new Dimension(700, 610));
+        setPreferredSize(new Dimension(730, 620));
 
     }
 
@@ -95,18 +95,18 @@ class MainMenuPanel extends JPanel implements ActionListener {
     //following method listens the action
 
     public void actionPerformed(ActionEvent event) {
-        /*if(event.getSource()==playGameButton){
+        if(event.getSource()==playGameButton){
          frame.remove(this);
          frame.add(new StageSelectionPanel(frame));
          frame.repaint();
-         frame.setSize(700,610); 
+         frame.setSize(730,620); 
          } 
          if(event.getSource()==highScoresButton){
          frame.remove(this);
-         frame.add(new HighScoresStageListPanel(frame));
+         frame.add(new HighScoreStageSelectionPanel(frame));
          frame.repaint();
-         frame.setSize(700,610);			
-         }
+         frame.setSize(730,620);			
+         }/*
          if(event.getSource()==settingsButton){
          frame.remove(this);
          frame.add(new SettingsPanel(frame));
