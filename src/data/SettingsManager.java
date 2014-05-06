@@ -7,8 +7,11 @@ package data;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,7 +38,24 @@ public class SettingsManager {
     }
 
     public void setSettings(Settings settings) {
-        this.settings = settings;
+        System.out.println("yazıyozz:"+settings.toString());
+        FileOutputStream writer = null;
+        try {
+            this.settings = settings;
+            writer = new FileOutputStream(settingsFilePath);
+            writer.write(settings.toString().getBytes());
+            writer.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SettingsManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(SettingsManager.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException ex) {
+                Logger.getLogger(SettingsManager.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
 }

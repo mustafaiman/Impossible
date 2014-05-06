@@ -26,4 +26,8 @@ public class DataManager {
     public HighScoreManager gethScoresMgr() {
         return hScoresMgr;
     }
+
+    public void setSettings(Settings settings) {
+        settingsMgr.setSettings(settings);
+    }
 }

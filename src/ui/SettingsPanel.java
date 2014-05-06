@@ -50,6 +50,8 @@ public class SettingsPanel extends javax.swing.JPanel {
             case 4 : car5.setSelected(true);
                      break;
         }
+        
+        
     }
 
     @Override
@@ -98,16 +100,31 @@ public class SettingsPanel extends javax.swing.JPanel {
         difficultyGroup.add(diffEasy);
         diffEasy.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         diffEasy.setText("Easy");
+        diffEasy.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                diffEasyMouseReleased(evt);
+            }
+        });
 
         difficultyGroup.add(diffMedium);
         diffMedium.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         diffMedium.setText("Medium");
+        diffMedium.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                diffMediumMouseReleased(evt);
+            }
+        });
 
         difficultyGroup.add(diffHard);
         diffHard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         diffHard.setText("Hard");
         diffHard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         diffHard.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        diffHard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                diffHardMouseReleased(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Difficulty :");
@@ -149,22 +166,47 @@ public class SettingsPanel extends javax.swing.JPanel {
         carGroup.add(car1);
         car1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car1.setText("Car 1");
+        car1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                car1MouseReleased(evt);
+            }
+        });
 
         carGroup.add(car2);
         car2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car2.setText("Car 2");
+        car2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                car2MouseReleased(evt);
+            }
+        });
 
         carGroup.add(car3);
         car3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car3.setText("Car 3");
+        car3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                car3MouseReleased(evt);
+            }
+        });
 
         carGroup.add(car4);
         car4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car4.setText("Car 4");
+        car4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                car4MouseReleased(evt);
+            }
+        });
 
         carGroup.add(car5);
         car5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car5.setText("Car 5");
+        car5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                car5MouseReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -254,6 +296,7 @@ public class SettingsPanel extends javax.swing.JPanel {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         System.out.println("Saved");
+        dataManager.setSettings(currentSettings);
     }//GEN-LAST:event_saveActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -262,9 +305,40 @@ public class SettingsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelActionPerformed
 
     private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
-        // TODO add your handling code here:
         currentSettings.setVolume(jSlider1.getValue());
     }//GEN-LAST:event_jSlider1MouseReleased
+
+    private void diffEasyMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_diffEasyMouseReleased
+        currentSettings.setDifficulty(0);
+    }//GEN-LAST:event_diffEasyMouseReleased
+
+    private void diffMediumMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_diffMediumMouseReleased
+        currentSettings.setDifficulty(1);
+    }//GEN-LAST:event_diffMediumMouseReleased
+
+    private void diffHardMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_diffHardMouseReleased
+        currentSettings.setDifficulty(2);
+    }//GEN-LAST:event_diffHardMouseReleased
+
+    private void car1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car1MouseReleased
+        currentSettings.setCarID(0);
+    }//GEN-LAST:event_car1MouseReleased
+
+    private void car2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car2MouseReleased
+        currentSettings.setCarID(1);
+    }//GEN-LAST:event_car2MouseReleased
+
+    private void car3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car3MouseReleased
+        currentSettings.setCarID(2);
+    }//GEN-LAST:event_car3MouseReleased
+
+    private void car4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car4MouseReleased
+        currentSettings.setCarID(3);
+    }//GEN-LAST:event_car4MouseReleased
+
+    private void car5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car5MouseReleased
+        currentSettings.setCarID(4);
+    }//GEN-LAST:event_car5MouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
