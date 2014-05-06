@@ -28,6 +28,28 @@ public class SettingsPanel extends javax.swing.JPanel {
         System.out.println(currentSettings.toString());
         
         jSlider1.setValue(currentSettings.getVolume());
+        
+        switch(currentSettings.getDifficulty()){
+            case 0 : diffEasy.setSelected(true);
+                     break;
+            case 1 : diffMedium.setSelected(true);
+                     break;
+            case 2 : diffHard.setSelected(true);
+                     break;
+        }
+        
+        switch(currentSettings.getCarID()){
+            case 0 : car1.setSelected(true);
+                     break;
+            case 1 : car2.setSelected(true);
+                     break;
+            case 2 : car3.setSelected(true);
+                     break;
+            case 3 : car4.setSelected(true);
+                     break;
+            case 4 : car5.setSelected(true);
+                     break;
+        }
     }
 
     @Override
@@ -49,26 +71,21 @@ public class SettingsPanel extends javax.swing.JPanel {
         carGroup = new javax.swing.ButtonGroup();
         jSlider1 = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        diffEasy = new javax.swing.JRadioButton();
+        diffMedium = new javax.swing.JRadioButton();
+        diffHard = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         carPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        save = new javax.swing.JButton();
+        cancel = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
+        car1 = new javax.swing.JRadioButton();
+        car2 = new javax.swing.JRadioButton();
+        car3 = new javax.swing.JRadioButton();
+        car4 = new javax.swing.JRadioButton();
+        car5 = new javax.swing.JRadioButton();
 
-        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSlider1StateChanged(evt);
-            }
-        });
         jSlider1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jSlider1MouseReleased(evt);
@@ -78,19 +95,19 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Volume :");
 
-        difficultyGroup.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton1.setText("Easy");
+        difficultyGroup.add(diffEasy);
+        diffEasy.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        diffEasy.setText("Easy");
 
-        difficultyGroup.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton2.setText("Medium");
+        difficultyGroup.add(diffMedium);
+        diffMedium.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        diffMedium.setText("Medium");
 
-        difficultyGroup.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton3.setText("Hard");
-        jRadioButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jRadioButton3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        difficultyGroup.add(diffHard);
+        diffHard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        diffHard.setText("Hard");
+        diffHard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        diffHard.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Difficulty :");
@@ -109,19 +126,19 @@ public class SettingsPanel extends javax.swing.JPanel {
             .addGap(0, 164, Short.MAX_VALUE)
         );
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        save.setText("Save");
+        save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                saveActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton2.setText("Cancel");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cancel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cancel.setText("Cancel");
+        cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelActionPerformed(evt);
             }
         });
 
@@ -129,25 +146,25 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Settings");
 
-        carGroup.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton4.setText("Car 1");
+        carGroup.add(car1);
+        car1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        car1.setText("Car 1");
 
-        carGroup.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton5.setText("Car 2");
+        carGroup.add(car2);
+        car2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        car2.setText("Car 2");
 
-        carGroup.add(jRadioButton6);
-        jRadioButton6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton6.setText("Car 3");
+        carGroup.add(car3);
+        car3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        car3.setText("Car 3");
 
-        carGroup.add(jRadioButton7);
-        jRadioButton7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton7.setText("Car 4");
+        carGroup.add(car4);
+        car4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        car4.setText("Car 4");
 
-        carGroup.add(jRadioButton8);
-        jRadioButton8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton8.setText("Car 5");
+        carGroup.add(car5);
+        car5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        car5.setText("Car 5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -167,26 +184,26 @@ public class SettingsPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(save)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                        .addComponent(cancel))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(diffMedium, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(diffEasy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(diffHard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(349, 349, 349))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton4)
-                                        .addComponent(jRadioButton5)
-                                        .addComponent(jRadioButton6)
-                                        .addComponent(jRadioButton7)
-                                        .addComponent(jRadioButton8))
+                                        .addComponent(car1)
+                                        .addComponent(car2)
+                                        .addComponent(car3)
+                                        .addComponent(car4)
+                                        .addComponent(car5))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(carPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(119, 119, 119)))))
@@ -203,11 +220,11 @@ public class SettingsPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(diffEasy)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton2)
+                        .addComponent(diffMedium)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton3))
+                        .addComponent(diffHard))
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -215,64 +232,59 @@ public class SettingsPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton4)
+                                .addComponent(car1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton5)
+                                .addComponent(car2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton6)
+                                .addComponent(car3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton7)
+                                .addComponent(car4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton8))))
+                                .addComponent(car5))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addComponent(carPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(save)
+                    .addComponent(cancel))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         System.out.println("Saved");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_saveActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         frame.setContentPane(new MainMenuPanel(frame));
         frame.revalidate();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        // TODO add your handling code here:
-        System.out.println(jSlider1.getValue());
-    }//GEN-LAST:event_jSlider1StateChanged
+    }//GEN-LAST:event_cancelActionPerformed
 
     private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
         // TODO add your handling code here:
-        System.out.println("--"+jSlider1.getValue());
+        currentSettings.setVolume(jSlider1.getValue());
     }//GEN-LAST:event_jSlider1MouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancel;
+    private javax.swing.JRadioButton car1;
+    private javax.swing.JRadioButton car2;
+    private javax.swing.JRadioButton car3;
+    private javax.swing.JRadioButton car4;
+    private javax.swing.JRadioButton car5;
     private javax.swing.ButtonGroup carGroup;
     private javax.swing.JPanel carPanel;
+    private javax.swing.JRadioButton diffEasy;
+    private javax.swing.JRadioButton diffHard;
+    private javax.swing.JRadioButton diffMedium;
     private javax.swing.ButtonGroup difficultyGroup;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JSlider jSlider1;
+    private javax.swing.JButton save;
     // End of variables declaration//GEN-END:variables
 }
