@@ -6,22 +6,26 @@
 package ui;
 
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-
+import data.DataManager;
 /**
  *
  * @author Ayhun
  */
 public class SettingsPanel extends javax.swing.JPanel {
-
+    DataManager dataManager;
+    data.Settings currentSettings;
     ScreenManager frame;
 
     /**
      * Creates new form SettingPanel
      */
     public SettingsPanel(ScreenManager frame) {
+        dataManager = new DataManager();
+        currentSettings = dataManager.getSettings();
         this.frame = frame;
         initComponents();
+        
+        System.out.println(currentSettings.toString());
     }
 
     @Override

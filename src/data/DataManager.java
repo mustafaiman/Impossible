@@ -11,5 +11,19 @@ package data;
  * @author Mustafa
  */
 public class DataManager {
+    SettingsManager settingsMgr;
+    HighScoreManager hScoresMgr;
     
+    public DataManager(){
+        settingsMgr= new SettingsManager();
+        hScoresMgr = new HighScoreManager();
+    }
+    
+    public Settings getSettings() {
+        return settingsMgr.getSettings();
+    }
+    
+    public HighScoreManager gethScoresMgr() {
+        return hScoresMgr;
+    }
 }
