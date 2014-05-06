@@ -26,6 +26,8 @@ public class SettingsPanel extends javax.swing.JPanel {
         initComponents();
         
         System.out.println(currentSettings.toString());
+        
+        jSlider1.setValue(currentSettings.getVolume());
     }
 
     @Override
@@ -61,6 +63,17 @@ public class SettingsPanel extends javax.swing.JPanel {
         jRadioButton6 = new javax.swing.JRadioButton();
         jRadioButton7 = new javax.swing.JRadioButton();
         jRadioButton8 = new javax.swing.JRadioButton();
+
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+        jSlider1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jSlider1MouseReleased(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Volume :");
@@ -230,6 +243,16 @@ public class SettingsPanel extends javax.swing.JPanel {
         frame.setContentPane(new MainMenuPanel(frame));
         frame.revalidate();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        // TODO add your handling code here:
+        System.out.println(jSlider1.getValue());
+    }//GEN-LAST:event_jSlider1StateChanged
+
+    private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
+        // TODO add your handling code here:
+        System.out.println("--"+jSlider1.getValue());
+    }//GEN-LAST:event_jSlider1MouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
