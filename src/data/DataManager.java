@@ -8,19 +8,28 @@ package data;
 
 /**
  *
- * @author Mustafa
+ * @author Ayhun
  */
 public class DataManager {
+    private static DataManager instance = null;
     SettingsManager settingsMgr;
     HighScoreManager hScoresMgr;
     
-    public DataManager(){
+    //Singleton
+    protected DataManager(){
         settingsMgr= new SettingsManager();
         hScoresMgr = new HighScoreManager();
     }
     
+    public static DataManager getInstance() {
+      if(instance == null) {
+         instance = new DataManager();
+      }
+      return instance;
+   }
+    
     public Settings getSettings() {
-        return settingsMgr.getSettings();
+        return settingsMgr.readSettings();
     }
     
     public HighScoreManager gethScoresMgr() {
@@ -28,6 +37,6 @@ public class DataManager {
     }
 
     public void setSettings(Settings settings) {
-        settingsMgr.setSettings(settings);
+        settingsMgr.saveSettings(settings);
     }
 }

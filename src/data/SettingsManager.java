@@ -33,12 +33,11 @@ public class SettingsManager {
         }
     }
 
-    public Settings getSettings() {
+    public Settings readSettings() {
         return settings;
     }
 
-    public void setSettings(Settings settings) {
-        System.out.println("yazıyozz:"+settings.toString());
+    public void saveSettings(Settings settings) {
         FileOutputStream writer = null;
         try {
             this.settings = settings;

@@ -20,15 +20,15 @@ public class SettingsPanel extends javax.swing.JPanel {
      * Creates new form SettingPanel
      */
     public SettingsPanel(ScreenManager frame) {
-        dataManager = new DataManager();
+        dataManager = DataManager.getInstance();
         currentSettings = dataManager.getSettings();
         this.frame = frame;
         initComponents();
         
-        System.out.println(currentSettings.toString());
+        // set slider from file
+        volume.setValue(currentSettings.getVolume());
         
-        jSlider1.setValue(currentSettings.getVolume());
-        
+        // set difficulty from file
         switch(currentSettings.getDifficulty()){
             case 0 : diffEasy.setSelected(true);
                      break;
@@ -38,6 +38,7 @@ public class SettingsPanel extends javax.swing.JPanel {
                      break;
         }
         
+        // set chosen car from difficulty
         switch(currentSettings.getCarID()){
             case 0 : car1.setSelected(true);
                      break;
@@ -71,7 +72,7 @@ public class SettingsPanel extends javax.swing.JPanel {
 
         difficultyGroup = new javax.swing.ButtonGroup();
         carGroup = new javax.swing.ButtonGroup();
-        jSlider1 = new javax.swing.JSlider();
+        volume = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
         diffEasy = new javax.swing.JRadioButton();
         diffMedium = new javax.swing.JRadioButton();
@@ -88,9 +89,9 @@ public class SettingsPanel extends javax.swing.JPanel {
         car4 = new javax.swing.JRadioButton();
         car5 = new javax.swing.JRadioButton();
 
-        jSlider1.addMouseListener(new java.awt.event.MouseAdapter() {
+        volume.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jSlider1MouseReleased(evt);
+                volumeMouseReleased(evt);
             }
         });
 
@@ -238,7 +239,7 @@ public class SettingsPanel extends javax.swing.JPanel {
                             .addGap(349, 349, 349))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(volume, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(car1)
@@ -257,7 +258,7 @@ public class SettingsPanel extends javax.swing.JPanel {
                 .addComponent(jLabel4)
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(volume, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -295,7 +296,6 @@ public class SettingsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
-        System.out.println("Saved");
         dataManager.setSettings(currentSettings);
     }//GEN-LAST:event_saveActionPerformed
 
@@ -304,9 +304,9 @@ public class SettingsPanel extends javax.swing.JPanel {
         frame.revalidate();
     }//GEN-LAST:event_cancelActionPerformed
 
-    private void jSlider1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseReleased
-        currentSettings.setVolume(jSlider1.getValue());
-    }//GEN-LAST:event_jSlider1MouseReleased
+    private void volumeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_volumeMouseReleased
+        currentSettings.setVolume(volume.getValue());
+    }//GEN-LAST:event_volumeMouseReleased
 
     private void diffEasyMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_diffEasyMouseReleased
         currentSettings.setDifficulty(0);
@@ -358,7 +358,7 @@ public class SettingsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JButton save;
+    private javax.swing.JSlider volume;
     // End of variables declaration//GEN-END:variables
 }

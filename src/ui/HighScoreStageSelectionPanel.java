@@ -183,11 +183,28 @@ class HighScoreStageSelectionPanel extends JPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent event) {
-        if (event.getSource() == mainMenuButton) {
-            frame.remove(this);
-            frame.add(new MainMenuPanel(frame));
-            frame.repaint();
-            frame.setSize(730, 619);
+        if ( event.getSource().equals(mainMenuButton) ){
+            frame.setContentPane(new MainMenuPanel(frame));
+            frame.revalidate();
+        }
+        else if (event.getSource().equals(stage1Button)) {
+            frame.setContentPane(new HighScoresPanel(frame, 1));
+            frame.revalidate();
+        }
+        else if (event.getSource().equals(stage2Button)) {
+            System.out.println("2");
+        }
+        else if (event.getSource().equals(stage3Button)) {
+            System.out.println("3");
+        }
+        else if (event.getSource().equals(stage4Button)) {
+            System.out.println("4");
+        }
+        else if (event.getSource().equals(stage5Button)) {
+            System.out.println("5");
+        }
+        else if (event.getSource().equals(stage6Button)) {
+            System.out.println("6");
         }
     }
 }
