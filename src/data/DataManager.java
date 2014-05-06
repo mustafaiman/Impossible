@@ -32,8 +32,8 @@ public class DataManager {
         return settingsMgr.readSettings();
     }
     
-    public HighScoreManager gethScoresMgr() {
-        return hScoresMgr;
+    public HighScoreList getHighScores(int stage, int difficulty) {
+        return hScoresMgr.getHighScores(stage, difficulty);
     }
 
     public void setSettings(Settings settings) {
