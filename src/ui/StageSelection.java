@@ -7,7 +7,7 @@ package ui;
 
 /**
  *
- * @author Dilara
+ * @author Dilara, ayhun
  */
 
 import java.awt.Color;
@@ -111,10 +111,26 @@ class StageSelectionPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == mainMenuButton) {
-            frame.remove(this);
-            frame.add(new MainMenuPanel(frame));
-            frame.repaint();
-            frame.setSize(730, 619);
+            frame.setContentPane(new MainMenuPanel(frame));
+            frame.revalidate();
+        }
+        else if ( event.getSource() == stage1Button){
+            
+        }
+        else if ( event.getSource() == stage2Button){
+            
+        }
+        else if ( event.getSource() == stage3Button){
+            
+        }
+        else if ( event.getSource() == stage4Button){
+            
+        }
+        else if ( event.getSource() == stage5Button){
+            
+        }
+        else if ( event.getSource() == stage6Button){
+            
         }
     }
 }

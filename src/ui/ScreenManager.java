@@ -16,7 +16,7 @@ public class ScreenManager extends JFrame{
     static ScreenManager instance = null;
     private ScreenManager() {
 	
-	setSize(800,610);
+	setSize(800,600);
 	setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		
 	MainMenuPanel mainMenuPanel = new MainMenuPanel(this);
