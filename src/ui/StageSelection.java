@@ -33,9 +33,9 @@ class StageSelectionPanel extends JPanel implements ActionListener {
         mainMenuButton = new javax.swing.JButton();
 
         titleLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        titleLabel.setText("Where are you supposed to go?");
+        titleLabel.setText(" Choose a stage");
 
-        mainMenuButton.setText("Main Menu");        
+        mainMenuButton.setText("Back");        
                
         BIcon=new ImageIcon("images/B.jpg");
         EEIcon=new ImageIcon("images/EEE.jpg");
@@ -115,22 +115,23 @@ class StageSelectionPanel extends JPanel implements ActionListener {
             frame.revalidate();
         }
         else if ( event.getSource() == stage1Button){
-            
+            System.out.println("Stage 1");
         }
         else if ( event.getSource() == stage2Button){
-            
+            System.out.println("Stage 2");
         }
         else if ( event.getSource() == stage3Button){
-            
+            System.out.println("Stage 3");
         }
         else if ( event.getSource() == stage4Button){
-            
+            System.out.println("Stage 4");
         }
         else if ( event.getSource() == stage5Button){
-            
+            System.out.println("Stage 5");
         }
         else if ( event.getSource() == stage6Button){
-            
+            System.out.println("Stage 6");
+            System.err.println("Stage 7");
         }
     }
 }
