@@ -20,6 +20,10 @@ public class Settings {
         this.carID = Integer.parseInt(buffer[2]);
     }
     
+    public Settings copy(){
+        return new Settings(volume+","+difficulty+","+carID);
+    }
+    
     public String toString(){
         return volume+","+difficulty+","+carID;
     }

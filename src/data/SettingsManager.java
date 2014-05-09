@@ -23,15 +23,18 @@ public class SettingsManager {
     
     Settings settings;
 
-    public Settings readSettings() {
+    public SettingsManager(){
         try (BufferedReader br = new BufferedReader(new FileReader(settingsFilePath))) {
-            return new Settings(br.readLine());
+            settings = new Settings(br.readLine());
         } catch (FileNotFoundException ex) {
             System.out.println(ex.toString());
         } catch (IOException ex) {
             System.out.println(ex.toString());
         }
-        return settings;
+    }
+    
+    public Settings readSettings() {
+        return settings.copy();
     }
 
     public void saveSettings(Settings settings) {
