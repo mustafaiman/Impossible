@@ -59,8 +59,12 @@ public class PedestrianManager {
             return;
         pedestrians.remove(id);
     }
-    public int checkCollision(int x, int y, int width, int height)
+    public int checkCollision(int x, int y, int width, int height, int direction)
     {
+        for(Pedestrian ped : pedestrians) {
+            if( ped.checkCollision(x, y, width, height, direction) )
+                return 1;
+        }
         return 0;
     }
     public void paintComponent(Graphics g)

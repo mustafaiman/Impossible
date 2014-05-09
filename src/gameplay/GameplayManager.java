@@ -6,10 +6,15 @@
 
 package gameplay;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Path2D;
 import javax.swing.JPanel;
 import ui.ScreenManager;
 
@@ -45,8 +50,10 @@ public class GameplayManager implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getKeyChar()=='k')
+        if(e.getKeyChar()=='k') {
             pedestrianManager.killPedestrian(0);
+        }
+        System.out.println(pedestrianManager.checkCollision(300, 300, 50, 70, 0));
         pedestrianManager.advance();
         panel.repaint();
     }
@@ -57,7 +64,11 @@ public class GameplayManager implements KeyListener {
         public void paintComponent(Graphics g)
         {
             super.paintComponent(g);
+            g.drawRect(275, 265, 50, 70);
             pedestrianManager.paintComponent(g);
+            
+            
+            
         }
     }
 }

@@ -6,11 +6,8 @@
 
 package gameplay;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
-import static javax.swing.Spring.height;
-import static javax.swing.Spring.width;
 
 /**
  *
@@ -53,6 +50,6 @@ public abstract class Pedestrian {
     {
         direction = random.nextInt(360);
     }
-    abstract boolean checkCollision(int x, int y, int width, int height, double direction);
+    abstract boolean checkCollision(int x, int y, int width, int height, int direction);
     abstract void paintPedestrian(Graphics g);
 }
