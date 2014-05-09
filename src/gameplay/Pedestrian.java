@@ -18,27 +18,22 @@ import static javax.swing.Spring.width;
  */
 public abstract class Pedestrian {
     protected int x,y;
-    protected double direction;
-    protected boolean forward;
+    protected int direction;
     Random random;
     public Pedestrian(int x,int y)
     {
         this.x = x;
         this.y = y;
         random = new Random();
+        this.direction = random.nextInt(360);
     }
     
     public void advance()
     {
         int tempx,tempy;
-        if(forward)
-        {
-            tempx = x + (int)(direction*10.0);
-            tempy = y + (int)(Math.sqrt(1-direction*direction)*10.0);
-        } else {
-            tempx = x - (int)(direction*10.0);
-            tempy = y - (int)(Math.sqrt(1-direction*direction)*10.0);
-        }
+        tempx = x + (int)(Math.sin(Math.toRadians(direction))*10.0);
+        tempy = y + (int)(Math.cos(Math.toRadians(direction))*10.0);
+
         if(tempx <= 800 && tempx >=0)
             x = tempx;
         if(tempy <= 600 && tempy >=0)
@@ -56,9 +51,8 @@ public abstract class Pedestrian {
     }
     private void changeDirection()
     {
-        direction = random.nextDouble();//-1 ile 1 arası olacak. şuan 0 ile 1 arası
-        forward = random.nextBoolean();
+        direction = random.nextInt(360);
     }
-    
+    abstract boolean checkCollision(int x, int y, int width, int height, double direction);
     abstract void paintPedestrian(Graphics g);
 }

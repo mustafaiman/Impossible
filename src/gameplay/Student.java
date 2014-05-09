@@ -20,10 +20,16 @@ public class Student extends Pedestrian {
     }
     
     @Override
+    boolean checkCollision(int x, int y, int width, int height, double direction) {
+        return false;
+    }
+    
+    @Override
     public void paintPedestrian(Graphics g){
         g.setColor(Color.BLUE);
         g.fillRect(x,y,10,10);
         g.setColor(Color.BLACK);
         g.drawRect(x,y,10,10);  
     }
+
 }

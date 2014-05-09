@@ -18,6 +18,12 @@ public class AcademicPersonnel extends Pedestrian {
     {
         super(x,y);
     }
+    
+    @Override
+    boolean checkCollision(int x, int y, int width, int height, double direction) {
+        return false;
+    }
+    
     @Override
     public void paintPedestrian(Graphics g){
         g.setColor(Color.RED);
