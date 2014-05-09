@@ -53,6 +53,12 @@ public class PedestrianManager {
         for(Pedestrian ped : pedestrians)
             ped.advance();
     }
+    public void killPedestrian(int id)
+    {
+        if(id >= pedestrians.size() )
+            return;
+        pedestrians.remove(id);
+    }
     public void paintComponent(Graphics g)
     {
         for(Pedestrian ped : pedestrians)
