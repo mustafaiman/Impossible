@@ -15,23 +15,17 @@ import static javax.swing.Spring.width;
  *
  * @author Mustafa
  */
-public class Pedestrian {
-    protected int x,y,direction;
+public abstract class Pedestrian {
+    protected int x,y;
+    protected double direction;
+    protected boolean forward;
     public Pedestrian(int x,int y)
     {
         this.x = x;
         this.y = y;
-        this.direction=0;
     }
     
-    public void advance() {
-        
-    }
+    abstract void advance();
     
-    public void paintPedestrian(Graphics g){
-        g.setColor(Color.RED);
-        g.fillRect(x,y,10,10);
-        g.setColor(Color.BLACK);
-        g.drawRect(x,y,10,10);  
-    }
+    abstract void paintPedestrian(Graphics g);
 }

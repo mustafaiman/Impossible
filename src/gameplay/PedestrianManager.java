@@ -48,6 +48,11 @@ public class PedestrianManager {
             pedestrians.add(new AcademicPersonnel(random.nextInt(800),random.nextInt(600)));
         }
     }
+    public void advance()
+    {
+        for(Pedestrian ped : pedestrians)
+            ped.advance();
+    }
     public void paintComponent(Graphics g)
     {
         for(Pedestrian ped : pedestrians)

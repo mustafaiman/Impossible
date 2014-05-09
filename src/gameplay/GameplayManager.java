@@ -8,6 +8,8 @@ package gameplay;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import ui.ScreenManager;
 
@@ -15,16 +17,36 @@ import ui.ScreenManager;
  *
  * @author Mustafa
  */
-public class GameplayManager {
+public class GameplayManager implements KeyListener {
     protected PedestrianManager pedestrianManager;
     protected ScreenManager screen;
+    protected GameplayPanel panel;
     public GameplayManager(int level, int difficulty)
     {
         screen = ui.ScreenManager.getInstance();
-        GameplayPanel panel = new GameplayPanel();
+        panel = new GameplayPanel();
+        panel.setFocusable(true);
+        panel.addKeyListener(this);
         screen.setContentPane(panel);
+        panel.requestFocus();
         pedestrianManager = new PedestrianManager(difficulty);
         screen.revalidate();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        pedestrianManager.advance();
+        panel.repaint();
     }
     private class GameplayPanel extends JPanel {
         public GameplayPanel() {
