@@ -45,6 +45,8 @@ public class GameplayManager implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        if(e.getKeyChar()=='k')
+            pedestrianManager.killPedestrian(0);
         pedestrianManager.advance();
         panel.repaint();
     }
