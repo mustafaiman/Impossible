@@ -6,10 +6,24 @@
 
 package gameplay;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author ayhun
  */
-public class Vehicle {
+public abstract class Vehicle {
+    protected int x,y;
+    protected double direction;
+    protected boolean forward;
     
+    public Vehicle(int x,int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+    
+    abstract void advance();
+    
+    abstract void paint(Graphics g);
 }

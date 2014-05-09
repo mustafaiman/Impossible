@@ -8,11 +8,11 @@ package gameplay;
 
 /**
  *
- * @author ayhun
+ * @author Home-PC
  */
-public class PlayerCar extends MobileCar{
+public class Taxi extends MobileCar{
 
-    public PlayerCar(int x, int y) {
+    public Taxi(int x, int y) {
         super(x, y);
     }
     
