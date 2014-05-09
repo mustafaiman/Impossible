@@ -8,26 +8,16 @@ package gameplay;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import static javax.swing.Spring.height;
-import static javax.swing.Spring.width;
 
 /**
  *
  * @author Mustafa
  */
-public class Pedestrian {
-    protected int x,y,direction;
-    public Pedestrian(int x,int y)
+public class AcademicPersonnel extends Pedestrian {
+    public AcademicPersonnel(int x,int y)
     {
-        this.x = x;
-        this.y = y;
-        this.direction=0;
+        super(x,y);
     }
-    
-    public void advance() {
-        
-    }
-    
     public void paintPedestrian(Graphics g){
         g.setColor(Color.RED);
         g.fillRect(x,y,10,10);

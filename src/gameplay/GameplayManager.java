@@ -23,7 +23,7 @@ public class GameplayManager {
         screen = ui.ScreenManager.getInstance();
         GameplayPanel panel = new GameplayPanel();
         screen.setContentPane(panel);
-        pedestrianManager = new PedestrianManager();
+        pedestrianManager = new PedestrianManager(difficulty);
         screen.revalidate();
     }
     private class GameplayPanel extends JPanel {
