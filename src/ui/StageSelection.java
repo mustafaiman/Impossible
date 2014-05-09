@@ -10,6 +10,7 @@ package ui;
  * @author Dilara, ayhun
  */
 
+import gameplay.GameplayManager;
 import java.awt.Color;
 import java.awt.event.*;
 import javax.swing.*;
@@ -116,6 +117,7 @@ class StageSelectionPanel extends JPanel implements ActionListener {
         }
         else if ( event.getSource() == stage1Button){
             System.out.println("Stage 1");
+            new GameplayManager(1,0);
         }
         else if ( event.getSource() == stage2Button){
             System.out.println("Stage 2");
