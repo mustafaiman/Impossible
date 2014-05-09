@@ -52,7 +52,7 @@ public class VehicleManager {
             v.paint(g);
     }
     
-    public boolean checkCollision(int x, int y, int width, int height){
+    public boolean checkCollision(int x, int y, int width, int height){// dolsun diye yazdım düzeltilecek.
         Point p;
         for(Vehicle v : vehicles){
             p=v.getLocation();

@@ -15,13 +15,16 @@ import java.awt.Point;
  */
 public abstract class Vehicle {
     protected int x,y;
-    protected double direction;
+    protected int speed;
+    protected int direction; //degrees
     protected boolean forward;
     
     public Vehicle(int x,int y)
     {
         this.x = x;
         this.y = y;
+        speed = 0;
+        direction = 90;
     }
     
     abstract void advance();
