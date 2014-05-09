@@ -7,6 +7,7 @@
 package gameplay;
 
 import java.awt.Graphics;
+import java.awt.Point;
 
 /**
  *
@@ -26,4 +27,8 @@ public abstract class Vehicle {
     abstract void advance();
     
     abstract void paint(Graphics g);
+    
+    public Point getLocation(){
+        return new Point(x, y);
+    }
 }
