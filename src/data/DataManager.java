@@ -44,7 +44,7 @@ public class DataManager {
         return hScoresMgr.isHighScore(stage, diff, score);
     }
     
-    public void handleHighScore(){
+    public void handleHighScore(int stage, int diff, int score){
         
     }
 }
