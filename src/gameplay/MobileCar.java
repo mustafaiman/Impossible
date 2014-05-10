@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.util.Random;
 
 /**
@@ -25,9 +26,8 @@ public class MobileCar extends Vehicle{
 
     @Override
     void advance() {
-        int tempx,tempy;
-        tempx = x + (int)(-1*Math.sin(Math.toRadians(direction))*20.0);
-        tempy = y + (int)(Math.cos(Math.toRadians(direction))*20.0);
+        int tempx = x + (int)(-1*Math.sin(Math.toRadians(direction))*speed);
+        int tempy = y + (int)(Math.cos(Math.toRadians(direction))*speed);
 
         if(tempx <= 800 && tempx >=0)
             x = tempx;
@@ -43,10 +43,7 @@ public class MobileCar extends Vehicle{
     void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
         g2d.rotate(Math.toRadians(direction));
-        g2d.setColor(Color.YELLOW);
-        g2d.fillRect(x,y,10,20);
-        g2d.setColor(Color.BLACK);
-        g2d.drawRect(x,y,10,20); 
+        g2d.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/defaultCar.png"), 550, 370, 64, 64, null);
     }
 
     private void changeDirection() {

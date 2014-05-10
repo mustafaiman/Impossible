@@ -43,11 +43,13 @@ public class VehicleManager {
     
     public void advance()
     {
+        pCar.advance();
         for(Vehicle v : vehicles)
             v.advance();
     }
     public void paintComponent(Graphics g)
     {
+        pCar.paint(g);
         for(Vehicle v : vehicles)
             v.paint(g);
     }

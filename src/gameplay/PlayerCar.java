@@ -16,4 +16,11 @@ public class PlayerCar extends MobileCar{
         super(x, y);
     }
     
+    public void accelerate(){
+        speed++;
+    }
+    
+    public void decelerate(){
+        speed--;
+    }
 }
