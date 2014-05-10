@@ -6,26 +6,27 @@
 
 package gameplay;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Path2D;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import ui.ScreenManager;
 
 /**
  *
  * @author Mustafa
  */
-public class GameplayManager implements KeyListener {
+public class GameplayManager implements KeyListener, ActionListener {
     protected PedestrianManager pedestrianManager;
     protected ScreenManager screen;
     protected GameplayPanel panel;
+    private boolean stillUpdating;
+    private Timer displayTimer = new Timer(250, this);
+
     public GameplayManager(int level, int difficulty)
     {
         screen = ui.ScreenManager.getInstance();
@@ -36,6 +37,8 @@ public class GameplayManager implements KeyListener {
         panel.requestFocus();
         pedestrianManager = new PedestrianManager(difficulty);
         screen.revalidate();
+        stillUpdating = false;
+        displayTimer.start();
     }
 
     @Override
@@ -57,6 +60,23 @@ public class GameplayManager implements KeyListener {
         pedestrianManager.advance();
         panel.repaint();
     }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        //If still loading, can't animate.
+        if (stillUpdating) {
+            return;
+        }
+        stillUpdating = true;
+        
+        System.out.println(pedestrianManager.checkCollision(300, 300, 50, 70, 0));
+        pedestrianManager.advance();
+        panel.repaint();
+        
+        stillUpdating = false;
+        
+    }
+    
     private class GameplayPanel extends JPanel {
         public GameplayPanel() {
             setPreferredSize(new Dimension(800,600));
