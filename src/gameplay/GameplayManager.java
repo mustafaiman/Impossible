@@ -6,6 +6,7 @@
 
 package gameplay;
 
+import data.DataManager;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import ui.MainMenuPanel;
+import ui.NewHighscorePanel;
 import ui.ScreenManager;
 
 /**
@@ -31,9 +33,12 @@ public class GameplayManager implements KeyListener, ActionListener {
     private boolean stillUpdating;
     private Timer displayTimer = new Timer(100, this);
     private int currentScore, scoreDivider;
+    private int stage, diff;
 
-    public GameplayManager(int level, int difficulty)
+    public GameplayManager(int stage, int diff)
     {
+        this.stage=stage;
+        this.diff=diff;
         currentScore = 2000;
         scoreDivider = 10;
         screen = ui.ScreenManager.getInstance();
@@ -41,11 +46,10 @@ public class GameplayManager implements KeyListener, ActionListener {
         panel.setFocusable(true);
         panel.addKeyListener(this);
         screen.setContentPane(panel);
-        panel.requestFocus();
-        pedestrianManager = new PedestrianManager(difficulty);
-        vehicleManager = new VehicleManager(0);
-        
         screen.revalidate();
+        panel.requestFocus();
+        pedestrianManager = new PedestrianManager(diff);
+        vehicleManager = new VehicleManager(diff);
         stillUpdating = false;
         displayTimer.start();
     }
@@ -71,9 +75,21 @@ public class GameplayManager implements KeyListener, ActionListener {
                 // handle right
                 break;
             case KeyEvent.VK_ESCAPE:
-                exit();
+                exit(); break;
             case KeyEvent.VK_P:
-                pause();
+                pause();break;
+            case KeyEvent.VK_SPACE:
+                if(!DataManager.getInstance().isHighScore(stage, diff, currentScore)){
+                    displayTimer.stop();
+                    JOptionPane.showConfirmDialog (null, "You have failed to make it to high score table","Looser",JOptionPane.INFORMATION_MESSAGE);
+                    screen.setContentPane(new MainMenuPanel(screen));//new NewHighscorePanel(screen,stage,diff,currentScore));
+                    screen.revalidate();    
+                }
+                else{
+                    displayTimer.stop();
+                    screen.setContentPane(new NewHighscorePanel(screen, stage, diff, stage));
+                    screen.revalidate();
+                }
         }
     }
     
@@ -95,6 +111,7 @@ public class GameplayManager implements KeyListener, ActionListener {
 
         if(dialogButton == JOptionPane.YES_OPTION){ 
             //TODO: nasıl çıkacazzzz
+            displayTimer.stop();
             screen.setContentPane(new MainMenuPanel(screen));
             screen.revalidate();
         }

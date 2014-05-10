@@ -36,4 +36,13 @@ public class HighScoreList {
         
         return tmp;
     }
+    
+    public boolean isHighScore(int i){
+        for(int j: scores){
+            if(i > j){
+                return true;
+            }
+        }
+        return false;
+    }
 }

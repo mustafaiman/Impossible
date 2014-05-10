@@ -21,10 +21,6 @@ public class HighScoreManager {
     private String targetPath;
     private HighScoreList list;
     
-    public HighScoreManager(){
-        
-    }
-    
     public HighScoreList getHighScores(int stage, int difficulty){
         targetPath = hsPath + stage + "/";
         switch (difficulty){
@@ -46,5 +42,9 @@ public class HighScoreManager {
         }
         
         return list;
+    }
+    
+    public boolean isHighScore(int stage, int diff, int score){
+        return getHighScores(stage, diff).isHighScore(score) ;
     }
 }

@@ -39,4 +39,12 @@ public class DataManager {
     public void setSettings(Settings settings) {
         settingsMgr.saveSettings(settings);
     }
+    
+    public boolean isHighScore(int stage, int diff, int score){
+        return hScoresMgr.isHighScore(stage, diff, score);
+    }
+    
+    public void handleHighScore(){
+        
+    }
 }
