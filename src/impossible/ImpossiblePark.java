@@ -5,7 +5,6 @@
  */
 
 package impossible;
-import gameplay.GameplayManager;
 import ui.ScreenManager;
 
 /**

@@ -105,6 +105,9 @@ public class SettingsPanel extends javax.swing.JPanel {
         car4 = new javax.swing.JRadioButton();
         car5 = new javax.swing.JRadioButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        volume.setBackground(new java.awt.Color(255, 255, 255));
         volume.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 volumeMouseReleased(evt);
@@ -114,6 +117,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Volume :");
 
+        diffEasy.setBackground(new java.awt.Color(255, 255, 255));
         difficultyGroup.add(diffEasy);
         diffEasy.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         diffEasy.setText("Easy");
@@ -123,6 +127,7 @@ public class SettingsPanel extends javax.swing.JPanel {
             }
         });
 
+        diffMedium.setBackground(new java.awt.Color(255, 255, 255));
         difficultyGroup.add(diffMedium);
         diffMedium.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         diffMedium.setText("Medium");
@@ -132,6 +137,7 @@ public class SettingsPanel extends javax.swing.JPanel {
             }
         });
 
+        diffHard.setBackground(new java.awt.Color(255, 255, 255));
         difficultyGroup.add(diffHard);
         diffHard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         diffHard.setText("Hard");
@@ -149,6 +155,22 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Car :");
 
+<<<<<<< HEAD
+=======
+        carPanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout carPanelLayout = new javax.swing.GroupLayout(carPanel);
+        carPanel.setLayout(carPanelLayout);
+        carPanelLayout.setHorizontalGroup(
+            carPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 164, Short.MAX_VALUE)
+        );
+        carPanelLayout.setVerticalGroup(
+            carPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 164, Short.MAX_VALUE)
+        );
+
+>>>>>>> 6fac6b2d6ed1b777a3516093bb2a7347c265a7b2
         save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         save.setText("Ok");
         save.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +191,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Settings");
 
+        car1.setBackground(new java.awt.Color(255, 255, 255));
         carGroup.add(car1);
         car1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car1.setText("Car 1");
@@ -178,6 +201,7 @@ public class SettingsPanel extends javax.swing.JPanel {
             }
         });
 
+        car2.setBackground(new java.awt.Color(255, 255, 255));
         carGroup.add(car2);
         car2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car2.setText("Car 2");
@@ -187,6 +211,7 @@ public class SettingsPanel extends javax.swing.JPanel {
             }
         });
 
+        car3.setBackground(new java.awt.Color(255, 255, 255));
         carGroup.add(car3);
         car3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car3.setText("Car 3");
@@ -196,6 +221,7 @@ public class SettingsPanel extends javax.swing.JPanel {
             }
         });
 
+        car4.setBackground(new java.awt.Color(255, 255, 255));
         carGroup.add(car4);
         car4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car4.setText("Car 4");
@@ -205,6 +231,7 @@ public class SettingsPanel extends javax.swing.JPanel {
             }
         });
 
+        car5.setBackground(new java.awt.Color(255, 255, 255));
         carGroup.add(car5);
         car5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         car5.setText("Car 5");
