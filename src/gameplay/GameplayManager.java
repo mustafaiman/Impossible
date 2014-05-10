@@ -29,11 +29,12 @@ public class GameplayManager implements KeyListener, ActionListener {
     protected GameplayPanel panel;
     private boolean stillUpdating;
     private Timer displayTimer = new Timer(100, this);
-    private int currentScore;
+    private int currentScore, scoreDivider;
 
     public GameplayManager(int level, int difficulty)
     {
         currentScore = 2000;
+        scoreDivider = 10;
         screen = ui.ScreenManager.getInstance();
         panel = new GameplayPanel();
         panel.setFocusable(true);
@@ -132,11 +133,19 @@ public class GameplayManager implements KeyListener, ActionListener {
         public GameplayPanel() {
             setPreferredSize(new Dimension(800,600));
         }
+        @Override
         public void paintComponent(Graphics g)
         {
             super.paintComponent(g);
             pedestrianManager.paintComponent(g);
             vehicleManager.paintComponent(g);
+            g.drawString(""+currentScore, 50, 50);
+            
+            if (!(scoreDivider>0)){
+                currentScore-=5;
+                scoreDivider=10;
+            }
+            scoreDivider--;
         }
     }
 }
