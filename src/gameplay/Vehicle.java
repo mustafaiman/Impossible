@@ -80,8 +80,8 @@ public abstract class Vehicle {
 
         int w = img.getWidth(null), h = img.getHeight(null);
 
-        int neww = (int) Math.floor(w*cos + h*sin),
-            newh = (int) Math.floor(h*cos + w*sin);
+        int neww = (int) Math.floor(w*cos + h*sin);
+        int newh = (int) Math.floor(h*cos + w*sin);
 
         BufferedImage bimg = ImageTool.toBufferedImage(ImageTool.getEmptyImage(neww, newh));
         Graphics2D g = bimg.createGraphics();
