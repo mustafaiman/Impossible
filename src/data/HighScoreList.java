@@ -58,7 +58,8 @@ public class HighScoreList {
     
     public void handleHighScore(int score, String name, String targetPath){
         
-        for(int i = scores.size()-1; i >= 0; i--){
+        for(int i = 0; i < scores.size(); i++){
+            System.out.println("-" + i + " " + scores.get(i) + " " + score);
             if(scores.get(i)<=score){
                 scores.add(i, score);
                 names.add(i, name);
@@ -77,6 +78,7 @@ public class HighScoreList {
                     break;
                 }
                 wr.write(names.get(i)+","+scores.get(i)+",");
+
             }
         } catch (FileNotFoundException ex) {
             System.out.println(ex.toString());
