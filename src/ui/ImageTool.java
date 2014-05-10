@@ -20,7 +20,7 @@ import java.awt.image.BufferedImage;
  * <li>Clone image</li>
  * <li>Rotate image</li>
  * </ul>
- * 
+ *
  * @author Sri Harsha Chilakapati
  */
 public abstract class ImageTool {
@@ -30,11 +30,11 @@ public abstract class ImageTool {
 
     /**
      * Converts a given Image into a BufferedImage
-     * 
+     *
      * @param img The Image to be converted
      * @return The converted BufferedImage
      */
-    public static BufferedImage toBufferedImage(Image img){
+    public static BufferedImage toBufferedImage(Image img) {
         if (img instanceof BufferedImage) {
             return (BufferedImage) img;
         }
@@ -50,13 +50,13 @@ public abstract class ImageTool {
 
     /**
      * Splits an image into a number of rows and columns
-     * 
+     *
      * @param img The image to be split
      * @param rows The number of rows
      * @param cols The number of columns
      * @return The array of split images in the vertical order
      */
-    public static BufferedImage[] splitImage(Image img, int rows, int cols){
+    public static BufferedImage[] splitImage(Image img, int rows, int cols) {
         // Determine the width of each part
         int w = img.getWidth(null) / cols;
         // Determine the height of each part
@@ -87,11 +87,11 @@ public abstract class ImageTool {
 
     /**
      * Converts a given BufferedImage into an Image
-     * 
+     *
      * @param bimage The BufferedImage to be converted
      * @return The converted Image
      */
-    public static Image toImage(BufferedImage bimage){
+    public static Image toImage(BufferedImage bimage) {
         // Casting is enough to convert from BufferedImage to Image
         Image img = (Image) bimage;
         return img;
@@ -99,13 +99,13 @@ public abstract class ImageTool {
 
     /**
      * Resizes a given image to given width and height
-     * 
+     *
      * @param img The image to be resized
      * @param width The new width
      * @param height The new height
      * @return The resized image
      */
-    public static Image resize(Image img, int width, int height){
+    public static Image resize(Image img, int width, int height) {
         // Create a null image
         Image image = null;
         // Resize into a BufferedImage
@@ -120,13 +120,13 @@ public abstract class ImageTool {
 
     /**
      * Creates a tiled image with an image upto given width and height
-     * 
+     *
      * @param img The source image
      * @param width The width of image to be created
      * @param height The height of the image to be created
      * @return The created image
      */
-    public static Image createTiledImage(Image img, int width, int height){
+    public static Image createTiledImage(Image img, int width, int height) {
         // Create a null image
         Image image = null;
         BufferedImage bimg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
@@ -150,25 +150,25 @@ public abstract class ImageTool {
 
     /**
      * Creates an empty image with transparency
-     * 
+     *
      * @param width The width of required image
      * @param height The height of required image
      * @return The created image
      */
-    public static Image getEmptyImage(int width, int height){
+    public static Image getEmptyImage(int width, int height) {
         BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         return toImage(img);
     }
 
     /**
      * Creates a colored image with a specified color
-     * 
+     *
      * @param color The color to be filled with
      * @param width The width of the required image
      * @param height The height of the required image
      * @return The created image
      */
-    public static Image getColoredImage(Color color, int width, int height){
+    public static Image getColoredImage(Color color, int width, int height) {
         BufferedImage img = toBufferedImage(getEmptyImage(width, height));
         Graphics2D g = img.createGraphics();
         g.setColor(color);
@@ -179,11 +179,11 @@ public abstract class ImageTool {
 
     /**
      * Flips an image horizontally. (Mirrors it)
-     * 
+     *
      * @param img The source image
      * @return The image after flip
      */
-    public static Image flipImageHorizontally(Image img){
+    public static Image flipImageHorizontally(Image img) {
         int w = img.getWidth(null);
         int h = img.getHeight(null);
         BufferedImage bimg = toBufferedImage(getEmptyImage(w, h));
@@ -195,11 +195,11 @@ public abstract class ImageTool {
 
     /**
      * Flips an image vertically. (Mirrors it)
-     * 
+     *
      * @param img The source image
      * @return The image after flip
      */
-    public static Image flipImageVertically(Image img){
+    public static Image flipImageVertically(Image img) {
         int w = img.getWidth(null);
         int h = img.getHeight(null);
         BufferedImage bimg = toBufferedImage(getEmptyImage(w, h));
@@ -211,11 +211,11 @@ public abstract class ImageTool {
 
     /**
      * Clones an image. After cloning, a copy of the image is returned.
-     * 
+     *
      * @param img The image to be cloned
      * @return The clone of the given image
      */
-    public static Image clone(Image img){
+    public static Image clone(Image img) {
         BufferedImage bimg = toBufferedImage(getEmptyImage(img.getWidth(null), img.getHeight(null)));
         Graphics2D g = bimg.createGraphics();
         g.drawImage(img, 0, 0, null);
@@ -225,12 +225,12 @@ public abstract class ImageTool {
 
     /**
      * Rotates an image. Actually rotates a new copy of the image.
-     * 
+     *
      * @param img The image to be rotated
      * @param angle The angle in degrees
      * @return The rotated image
      */
-    public static Image rotate(Image img, double angle){
+    public static Image rotate(Image img, double angle) {
         double sin = Math.abs(Math.sin(Math.toRadians(angle))), cos = Math.abs(Math.cos(Math.toRadians(angle)));
         int w = img.getWidth(null), h = img.getHeight(null);
         int neww = (int) Math.floor(w * cos + h * sin), newh = (int) Math.floor(h
@@ -243,19 +243,19 @@ public abstract class ImageTool {
         g.dispose();
         return toImage(bimg);
     }
-    
+
     /**
      * Makes a color in an Image transparent.
      */
-    public static Image mask(Image img, Color color){
+    public static Image mask(Image img, Color color) {
         BufferedImage bimg = toBufferedImage(getEmptyImage(img.getWidth(null), img.getHeight(null)));
         Graphics2D g = bimg.createGraphics();
         g.drawImage(img, 0, 0, null);
         g.dispose();
-        for (int y=0; y<bimg.getHeight(); y++){
-            for (int x=0; x<bimg.getWidth(); x++){
+        for (int y = 0; y < bimg.getHeight(); y++) {
+            for (int x = 0; x < bimg.getWidth(); x++) {
                 int col = bimg.getRGB(x, y);
-                if (col==color.getRGB()){
+                if (col == color.getRGB()) {
                     bimg.setRGB(x, y, col & 0x00ffffff);
                 }
             }

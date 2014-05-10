@@ -3,47 +3,53 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package data;
 
 /**
  * Holds the setting information on its variables
+ *
  * @author Ayhun
  */
 public class Settings {
+
     int volume, difficulty, carID;
     String[] buffer;
-    
+
     /**
      * Constructor of the Settings class, parses a string to obtain setting info
-     * @param data String to be parsed. Input should have the form "(volume),(difficulty),(carID)"
+     *
+     * @param data String to be parsed. Input should have the form
+     * "(volume),(difficulty),(carID)"
      */
-    public Settings(String data){
+    public Settings(String data) {
         buffer = data.split(",");
         this.volume = Integer.parseInt(buffer[0]);
         this.difficulty = Integer.parseInt(buffer[1]);
         this.carID = Integer.parseInt(buffer[2]);
     }
-    
+
     /**
      * Makes a new settings object from current settings information
+     *
      * @return Settings object
      */
-    public Settings copy(){
-        return new Settings(volume+","+difficulty+","+carID);
+    public Settings copy() {
+        return new Settings(volume + "," + difficulty + "," + carID);
     }
-    
+
     /**
      * Converts to string
+     *
      * @return String representation of current setting info
      */
-    public String toString(){
-        return volume+","+difficulty+","+carID;
+    public String toString() {
+        return volume + "," + difficulty + "," + carID;
     }
 
     /**
      * Returns volume info
-     * @return Volume 
+     *
+     * @return Volume
      */
     public int getVolume() {
         return volume;
@@ -51,6 +57,7 @@ public class Settings {
 
     /**
      * Returns difficulty info
+     *
      * @return Difficulty
      */
     public int getDifficulty() {
@@ -59,6 +66,7 @@ public class Settings {
 
     /**
      * Returns carID info
+     *
      * @return carID
      */
     public int getCarID() {
@@ -67,6 +75,7 @@ public class Settings {
 
     /**
      * Sets the volume
+     *
      * @param volume volume level
      */
     public void setVolume(int volume) {
@@ -75,6 +84,7 @@ public class Settings {
 
     /**
      * Sets the difficulty
+     *
      * @param difficulty difficulty level
      */
     public void setDifficulty(int difficulty) {
@@ -83,11 +93,11 @@ public class Settings {
 
     /**
      * Sets the carID
+     *
      * @param carID id of car
      */
     public void setCarID(int carID) {
         this.carID = carID;
     }
-    
-    
+
 }

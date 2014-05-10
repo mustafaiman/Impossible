@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ui;
 
 import data.DataManager;
@@ -16,19 +15,21 @@ import java.awt.Toolkit;
  * @author Dilara, Ayhun
  */
 public class HighScoresPanel extends javax.swing.JPanel {
+
     ScreenManager frame;
     DataManager dataManager;
     protected Image backGroundCupImage = null;
+
     /**
      * Creates new form HighScoresPanel
      */
     public HighScoresPanel(ScreenManager frame, int stage) {
         this.frame = frame;
         dataManager = DataManager.getInstance();
-        backGroundCupImage = Toolkit.getDefaultToolkit().getImage("images/CupIcon.gif");        
+        backGroundCupImage = Toolkit.getDefaultToolkit().getImage("images/CupIcon.gif");
         initComponents();
-        scoreEasy.setText(dataManager.getHighScores(stage,0).toString());
-        scoreMedium.setText(dataManager.getHighScores(stage,1).toString());
+        scoreEasy.setText(dataManager.getHighScores(stage, 0).toString());
+        scoreMedium.setText(dataManager.getHighScores(stage, 1).toString());
         scoreHard.setText(dataManager.getHighScores(stage, 2).toString());
     }
 
@@ -42,7 +43,7 @@ public class HighScoresPanel extends javax.swing.JPanel {
         super.paintComponent(g);
         g.drawImage(backGroundCupImage, 1, 1, null);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

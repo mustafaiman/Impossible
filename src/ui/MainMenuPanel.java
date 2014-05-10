@@ -3,36 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ui;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
 
 /**
  *
  * @author Dilara, ayhun
  */
 public class MainMenuPanel extends javax.swing.JPanel {
+
     ScreenManager frame;
     protected Image backGroundImage = null;
+
     /**
      * Creates new form MainMenuPanel2
      */
     public MainMenuPanel(ScreenManager frame) {
         initComponents();
-        this.frame = frame;       
+        this.frame = frame;
         backGroundImage = Toolkit.getDefaultToolkit().getImage("images/CarPark.jpg");
-        
+
         setPreferredSize(new Dimension(800, 600));
     }
-    
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);

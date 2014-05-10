@@ -15,18 +15,19 @@ import java.util.logging.Logger;
 
 /**
  * Manages Settings information on disk
+ *
  * @author Ayhun
  */
 public class SettingsManager {
 
     private final String settingsFilePath = "data/settings.txt";
-    
+
     Settings settings;
 
     /**
      * Constructor of SettingsManager
      */
-    public SettingsManager(){
+    public SettingsManager() {
         try (BufferedReader br = new BufferedReader(new FileReader(settingsFilePath))) {
             settings = new Settings(br.readLine());
         } catch (FileNotFoundException ex) {
@@ -35,9 +36,10 @@ public class SettingsManager {
             System.out.println(ex.toString());
         }
     }
-    
+
     /**
      * Returns a copy of the setting object
+     *
      * @return setting object
      */
     public Settings readSettings() {
@@ -46,6 +48,7 @@ public class SettingsManager {
 
     /**
      * Saves the setting object to the disk
+     *
      * @param settings Setting object
      */
     public void saveSettings(Settings settings) {
@@ -67,5 +70,5 @@ public class SettingsManager {
             }
         }
     }
-    
+
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ui;
 
 /**
@@ -14,12 +13,12 @@ public class CreditsPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form Credits
-     */    
+     */
     ScreenManager frame;
-    
+
     public CreditsPanel(ScreenManager frame) {
         initComponents();
-        this.frame=frame;
+        this.frame = frame;
     }
 
     /**

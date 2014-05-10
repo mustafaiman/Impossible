@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package impossible;
+
 import ui.ScreenManager;
 
 /**
@@ -20,5 +20,5 @@ public class ImpossiblePark {
         // TODO code application logic here
         ScreenManager frame = ScreenManager.getInstance();
     }
-    
+
 }

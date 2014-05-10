@@ -7,15 +7,14 @@ package ui;
 
 import java.awt.Graphics;
 import data.DataManager;
-import java.awt.Component;
 import java.awt.Toolkit;
-import java.awt.image.ImageProducer;
-import javax.swing.Icon;
+
 /**
  *
  * @author Ayhun
  */
 public class SettingsPanel extends javax.swing.JPanel {
+
     DataManager dataManager;
     data.Settings currentSettings;
     ScreenManager frame;
@@ -29,55 +28,72 @@ public class SettingsPanel extends javax.swing.JPanel {
         currentSettings = dataManager.getSettings();
         this.frame = frame;
         initComponents();
-        
+
         // set slider from file
         volume.setValue(currentSettings.getVolume());
-        
+
         // set difficulty from file
-        switch(currentSettings.getDifficulty()){
-            case 0 : diffEasy.setSelected(true);
-                     break;
-            case 1 : diffMedium.setSelected(true);
-                     break;
-            case 2 : diffHard.setSelected(true);
-                     break;
+        switch (currentSettings.getDifficulty()) {
+            case 0:
+                diffEasy.setSelected(true);
+                break;
+            case 1:
+                diffMedium.setSelected(true);
+                break;
+            case 2:
+                diffHard.setSelected(true);
+                break;
         }
-        
+
         // set chosen car from difficulty
-        switch(currentSettings.getCarID()){
-            case 0 : car1.setSelected(true);
-                     currCar=0;
-                     break;
-            case 1 : car2.setSelected(true);
-                     currCar=1;
-                     break;
-            case 2 : car3.setSelected(true);
-                     currCar=2;
-                     break;
-            case 3 : car4.setSelected(true);
-                     currCar=3;
-                     break;
-            case 4 : car5.setSelected(true);
-                     currCar=4;
-                     break;
+        switch (currentSettings.getCarID()) {
+            case 0:
+                car1.setSelected(true);
+                currCar = 0;
+                break;
+            case 1:
+                car2.setSelected(true);
+                currCar = 1;
+                break;
+            case 2:
+                car3.setSelected(true);
+                currCar = 2;
+                break;
+            case 3:
+                car4.setSelected(true);
+                currCar = 3;
+                break;
+            case 4:
+                car5.setSelected(true);
+                currCar = 4;
+                break;
         }
-        
-        
+
     }
 
-    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        switch(currCar){
-            case 0:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/1.png"), 550, 370, 128, 128, this); break;
-            case 1:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/2.png"), 550, 370, 128, 128, this); break;
-            case 2:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/3.png"), 550, 370, 128, 128, this); break;
-            case 3:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/4.png"), 550, 370, 128, 128, this); break;
-            case 4:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/5.png"), 550, 370, 128, 128, this); break;
+        switch (currCar) {
+            case 0:
+                g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/1.png"), 550, 370, 128, 128, this);
+                break;
+            case 1:
+                g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/2.png"), 550, 370, 128, 128, this);
+                break;
+            case 2:
+                g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/3.png"), 550, 370, 128, 128, this);
+                break;
+            case 3:
+                g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/4.png"), 550, 370, 128, 128, this);
+                break;
+            case 4:
+                g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/5.png"), 550, 370, 128, 128, this);
+                break;
         }
-        
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

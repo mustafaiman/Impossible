@@ -36,17 +36,19 @@ public class DataManager {
         }
         return instance;
     }
-    
+
     /**
      * Provides setting information
+     *
      * @return Setting object that hold current setting info
      */
     public Settings getSettings() {
         return settingsMgr.readSettings();
     }
-    
+
     /**
      * Provides High Score information for the given stage and difficulty
+     *
      * @param stage Stage info
      * @param difficulty Difficulty info
      * @return HighScoreList object
@@ -54,17 +56,20 @@ public class DataManager {
     public HighScoreList getHighScores(int stage, int difficulty) {
         return hScoresMgr.getHighScores(stage, difficulty);
     }
-    
+
     /**
      * Sets the settings to the values that are in the given settings object
+     *
      * @param settings Setting info that we want to save to file
      */
     public void setSettings(Settings settings) {
         settingsMgr.saveSettings(settings);
     }
-    
+
     /**
-     * Checks if the given score beats any high score in the given stage difficulty pair
+     * Checks if the given score beats any high score in the given stage
+     * difficulty pair
+     *
      * @param stage stage info
      * @param diff difficulty info
      * @param score score info
@@ -76,6 +81,7 @@ public class DataManager {
 
     /**
      * Saves the given high score to the appropriate file
+     *
      * @param stage stage info
      * @param diff difficulty info
      * @param score score info

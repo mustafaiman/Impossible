@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ui;
 
 import data.DataManager;
@@ -18,19 +17,34 @@ public class NewHighscorePanel extends javax.swing.JPanel {
      * Creates new form NewHighscorePanel
      */
     ScreenManager frame;
-    int stage,diff,score;
+    int stage, diff, score;
+
     public NewHighscorePanel(ScreenManager frame, int stage, int diff, int score) {
         initComponents();
-        this.frame=frame;
-        this.stage=stage;
-        this.diff=diff;
-        this.score=score;
-        
-        
-        scoreLabel.setText("<html>Well done<br>Stage:"+stage+"<br>Difficulty:"+diff+"<br>Your Score:"+score);
+        this.frame = frame;
+        this.stage = stage;
+        this.diff = diff;
+        this.score = score;
+        String difficulty;
+
+        switch (diff) {
+            case 0:
+                difficulty = "Easy";
+                break;
+            case 1:
+                difficulty = "Medium";
+                break;
+            case 2:
+                difficulty = "Hard";
+                break;
+            default:
+                difficulty = "Easy";
+        }
+
+        scoreLabel.setText("<html>Well done<br>Stage:" + stage + "<br>Difficulty:" + difficulty + "<br>Your Score:" + score);
         frame.setContentPane(new MainMenuPanel(frame));
         frame.revalidate();
-        
+
     }
 
     /**
@@ -104,7 +118,7 @@ public class NewHighscorePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        DataManager.getInstance().handleHighScore(stage,diff,score, jTextField1.getText());
+        DataManager.getInstance().handleHighScore(stage, diff, score, jTextField1.getText());
         frame.setContentPane(new HighScoresPanel(frame, stage));
         frame.revalidate();
     }//GEN-LAST:event_jButton1ActionPerformed
