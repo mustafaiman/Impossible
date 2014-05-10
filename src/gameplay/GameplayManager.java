@@ -100,18 +100,6 @@ public class GameplayManager implements KeyListener, ActionListener {
                 exit(); break;
             case KeyEvent.VK_P:
                 pause();break;
-            case KeyEvent.VK_SPACE:
-                if(!DataManager.getInstance().isHighScore(stage, diff, currentScore)){
-                    displayTimer.stop();
-                    JOptionPane.showConfirmDialog (null, "You have failed to make it to high score table\nYour score:"+currentScore,"Looser",JOptionPane.PLAIN_MESSAGE);
-                    screen.setContentPane(new MainMenuPanel(screen));//new NewHighscorePanel(screen,stage,diff,currentScore));
-                    screen.revalidate();    
-                }
-                else{
-                    displayTimer.stop();
-                    screen.setContentPane(new NewHighscorePanel(screen, stage, diff, currentScore));
-                    screen.revalidate();
-                }
         }
     }
     
