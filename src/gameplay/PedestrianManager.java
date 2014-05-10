@@ -6,6 +6,7 @@
 
 package gameplay;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
@@ -77,6 +78,7 @@ public class PedestrianManager {
     }
     public void paintComponent(Graphics g)
     {
+        g.setFont(new Font("TimesRoman", Font.BOLD, 32)); 
         for(Pedestrian ped : pedestrians)
             ped.paintPedestrian(g);
     }
