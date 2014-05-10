@@ -10,8 +10,6 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -42,11 +40,11 @@ public class PedestrianManager {
         
         for(int i=0;i<numOfStudents;i++)
         {
-            pedestrians.add(new Student(random.nextInt(800),random.nextInt(600)));
+            pedestrians.add(new Student(random.nextInt(790),random.nextInt(590)));
         }
         for(int i=0;i<numOfAcademics;i++)
         {
-            pedestrians.add(new AcademicPersonnel(random.nextInt(800),random.nextInt(600)));
+            pedestrians.add(new AcademicPersonnel(random.nextInt(790),random.nextInt(590)));
         }
     }
     public void advance()

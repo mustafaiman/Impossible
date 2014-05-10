@@ -28,6 +28,7 @@ import ui.ScreenManager;
 public class GameplayManager implements KeyListener, ActionListener {
     protected PedestrianManager pedestrianManager;
     protected VehicleManager vehicleManager;
+    protected ParkingManager parkingManager;
     protected ScreenManager screen;
     protected GameplayPanel panel;
     private boolean stillUpdating;
@@ -46,6 +47,11 @@ public class GameplayManager implements KeyListener, ActionListener {
         panel.setFocusable(true);
         panel.addKeyListener(this);
         screen.setContentPane(panel);
+        panel.requestFocus();
+        parkingManager = new ParkingManager(1); //1 parking area only
+        pedestrianManager = new PedestrianManager(difficulty);
+        vehicleManager = new VehicleManager(difficulty);
+        
         screen.revalidate();
         panel.requestFocus();
         pedestrianManager = new PedestrianManager(diff);
@@ -143,7 +149,9 @@ public class GameplayManager implements KeyListener, ActionListener {
         vehicleManager.advance();
         Point p = vehicleManager.getPCarLocation();
         currentScore -= pedestrianManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64);
-        System.out.println(vehicleManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64));
+        //System.out.println("collided with car: " + vehicleManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64));
+        boolean bb = parkingManager.checkIfParked((int)p.getX(), (int)p.getY(), 32, 64);
+        System.out.println(bb);
         panel.repaint();
         
         stillUpdating = false;
@@ -158,6 +166,7 @@ public class GameplayManager implements KeyListener, ActionListener {
         public void paintComponent(Graphics g)
         {
             super.paintComponent(g);
+            parkingManager.paintComponent(g);
             pedestrianManager.paintComponent(g);
             vehicleManager.paintComponent(g);
             g.drawString(""+currentScore, 50, 50);
