@@ -22,7 +22,9 @@ import ui.ScreenManager;
  */
 public class GameplayManager implements KeyListener, ActionListener {
     protected PedestrianManager pedestrianManager;
+    protected VehicleManager vehicleManager;
     protected ScreenManager screen;
+    private Timer timer;
     protected GameplayPanel panel;
     private boolean stillUpdating;
     private Timer displayTimer = new Timer(250, this);
@@ -36,18 +38,39 @@ public class GameplayManager implements KeyListener, ActionListener {
         screen.setContentPane(panel);
         panel.requestFocus();
         pedestrianManager = new PedestrianManager(difficulty);
+        vehicleManager = new VehicleManager(0);
+        
         screen.revalidate();
         stillUpdating = false;
         displayTimer.start();
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-
+    public void keyPressed(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        System.out.println(keyCode);
+        switch( keyCode ) { 
+            case KeyEvent.VK_UP:
+                vehicleManager.movePCar(0);
+                break;
+            case KeyEvent.VK_DOWN:
+                vehicleManager.movePCar(1);
+                // handle down 
+                break;
+            case KeyEvent.VK_LEFT:
+                vehicleManager.movePCar(3);
+                // handle left
+                break;
+            case KeyEvent.VK_RIGHT :
+                vehicleManager.movePCar(2);
+                // handle right
+                break;
+        }
+        panel.repaint();
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyTyped(KeyEvent e) {
         
     }
 
@@ -86,6 +109,7 @@ public class GameplayManager implements KeyListener, ActionListener {
             super.paintComponent(g);
             g.drawRect(275, 265, 50, 70);
             pedestrianManager.paintComponent(g);
+            vehicleManager.paintComponent(g);
             
             
             

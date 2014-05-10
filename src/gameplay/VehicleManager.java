@@ -17,8 +17,8 @@ import java.util.Random;
  */
 public class VehicleManager {
     private int difficulty;
-    ArrayList<Vehicle> vehicles;
-    PlayerCar pCar;
+    private ArrayList<Vehicle> vehicles;
+    private PlayerCar pCar;
     
     public VehicleManager(int diff){
         difficulty = diff;
@@ -64,5 +64,18 @@ public class VehicleManager {
         }
         return false;
 
+    }
+    
+    public void movePCar(int code)
+    {
+        switch(code)
+        {
+            case 0: pCar.accelerate();break;
+            case 1: pCar.decelerate();break;
+            case 2: pCar.changeDirection(true);break;
+            case 3: pCar.changeDirection(false);break;
+            default: break;
+            
+        }
     }
 }
