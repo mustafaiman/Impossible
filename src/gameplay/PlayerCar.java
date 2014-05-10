@@ -45,9 +45,18 @@ public class PlayerCar extends MobileCar{
     }
     
     public void changeDirection(boolean right){
-        if (right)
-            direction-=5;
-        else
-            direction+=5;
+        if(speed>=0){
+            if (right)
+                direction-=5;
+            else
+                direction+=5;
+        }
+        else{
+            if (right)
+                direction+=5;
+            else
+                direction-=5;
+        }
+            
     }
 }
