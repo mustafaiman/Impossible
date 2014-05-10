@@ -87,4 +87,12 @@ public class VehicleManager {
     {
         return pCar.getSpeed();
     }
+
+    void enableProtection() {
+        pCar.enableProtection();
+    }
+
+    boolean isProtectionEnabled() {
+        return pCar.isProtectionEnabled();
+    }
 }

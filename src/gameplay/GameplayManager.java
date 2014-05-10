@@ -146,8 +146,10 @@ public class GameplayManager implements KeyListener, ActionListener {
         vehicleManager.advance();
         Point p = vehicleManager.getPCarLocation();
         currentScore -= pedestrianManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64);
-        if (vehicleManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64))
+        if (!vehicleManager.isProtectionEnabled() && vehicleManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64)) {
             currentScore -= 30;
+            vehicleManager.enableProtection();
+        }
         boolean inLot = parkingManager.checkIfParked((int)p.getX(), (int)p.getY(), 32, 64);
         if(vehicleManager.getPCarSpeed() == 0 && inLot)
             System.out.println("Success!");
