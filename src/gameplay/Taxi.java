@@ -7,7 +7,7 @@
 package gameplay;
 
 /**
- *
+ * Represents a vehicle of type Taxi
  * @author Home-PC
  */
 public class Taxi extends MobileCar {
@@ -18,13 +18,18 @@ public class Taxi extends MobileCar {
         carTypeId = 6;
     }
     
+    /**
+     * Changes the direction of taxi with probability %20
+     */
     @Override
     protected void possiblyChangeDirection() {
         int changeDirectionChance = random.nextInt(100);
         if(changeDirectionChance >=80)
             changeDirection();
     }
-    
+    /**
+     * Changes the direction of taxi
+     */
     protected void changeDirection() {
         direction += random.nextInt(70)-35;
     }

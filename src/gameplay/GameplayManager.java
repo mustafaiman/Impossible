@@ -22,8 +22,11 @@ import ui.NewHighscorePanel;
 import ui.ScreenManager;
 
 /**
- *
- * @author Mustafa
+ * Is responsible for managing all aspects of the game. It holds a
+ * PedestrianManager, VehicleManager, ParkinkManager, ScreenManager and the panel
+ * that all the gameplay occurs.
+ * Listeners for user keyboard input is handled here.
+ * @author Mustafa, Dilara, Ayhun
  */
 public class GameplayManager implements KeyListener, ActionListener {
     protected PedestrianManager pedestrianManager;
@@ -39,6 +42,14 @@ public class GameplayManager implements KeyListener, ActionListener {
     private final int parealocy[]={0,0,50,510,0,330,0};
     private final boolean pareaorientation[]={false,false,true,false,false,true,false};
     
+    /**
+     * Constructor creates instances of managers specified in the class decsription.
+     * Score and score decrease rate are initialized.
+     * Game panel is created and respective listeners are associated
+     * Timer which will invoke advance methods of the managers is started.
+     * @param stage Stage number for newly created game
+     * @param diff  Difficulty level for newly created game
+     */
     public GameplayManager(int stage, int diff)
     {
         this.stage=stage;
@@ -60,6 +71,11 @@ public class GameplayManager implements KeyListener, ActionListener {
         displayTimer.start();
     }
 
+    /**
+     * Keyboard listener.
+     * Listens for arrow keys(move the car), escape key(exit game) and p key(pause)
+     * @param e 
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
@@ -99,6 +115,9 @@ public class GameplayManager implements KeyListener, ActionListener {
         }
     }
     
+    /**
+     * Pauses/resumes the timer to pause/resume game.
+     */
     public void pause(){
         if(displayTimer.isRunning()){
             displayTimer.stop();
@@ -108,6 +127,10 @@ public class GameplayManager implements KeyListener, ActionListener {
         }
     }
     
+    /**
+     * Shows a confirmation dialog to ask whether the player wants to exit the game.
+     * If yes, then it stops the timer and loads the main menu.
+     */
     public void exit(){
         if(displayTimer.isRunning())
             displayTimer.stop();
@@ -137,6 +160,17 @@ public class GameplayManager implements KeyListener, ActionListener {
         
     }
 
+    /**
+     * The actions taken at each unit time interval is specified here.
+     * At every tick, pedestrianManager and vehicleManager are asked to refresh themselves
+     * by executing their advance() method.
+     * Current location of the player car is passed to pedestrianManager and vehicleManager to
+     * determine if any collision happened. If yes, currentScore is reduced accordingly.
+     * Also checks if the car is parked to any suitable parking lot.
+     * If the car is parked or score reaches zero, then the game terminates and passes
+     * currentScore data to high score management.
+     * @param ae 
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         //If still loading, can't animate.
@@ -175,11 +209,21 @@ public class GameplayManager implements KeyListener, ActionListener {
         stillUpdating = false;
         
     }
-    
+    /**
+     * This is the panel that shows game objects.
+     */
     private class GameplayPanel extends JPanel {
+        /**
+         * Constructs a full-size panel
+         */
         public GameplayPanel() {
             setPreferredSize(new Dimension(800,600));
         }
+        /**
+         * It paints currentScore and calls required methods to paint parking areas, 
+         * pedestrians and vehicles.
+         * @param g 
+         */
         @Override
         public void paintComponent(Graphics g)
         {

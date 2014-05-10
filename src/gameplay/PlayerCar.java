@@ -10,8 +10,8 @@ import data.DataManager;
 import java.awt.Graphics;
 
 /**
- *
- * @author ayhun
+ * This is a class for representing player's car
+ * @author Ayhun, Dilara
  */
 public class PlayerCar extends MobileCar{
     private int protection;
@@ -19,11 +19,12 @@ public class PlayerCar extends MobileCar{
         
         super(x, y, DataManager.getInstance().getSettings().getCarID()+1);
         speed=0;
-        protection = 12;
+        protection = 12; 
     }
     
-    
-    
+    /**
+     * enables a few seconds exterritoriality for the car after a crash
+     */    
     public void enableProtection()
     {
         protection = 28;
@@ -43,27 +44,36 @@ public class PlayerCar extends MobileCar{
             y = tempy;
         
     }
-    
+    /**
+     * Accelerates car until its speed reaches constant amount 12
+     */
     public void accelerate(){
         if (speed > 12)
             return;
         speed++;
     }
-    
+    /**
+     * Decelerates car until it stops, then it accelaretes it in the backward direction
+     * until its speed reaches -5
+     */
     public void decelerate(){
         if (speed < -5)
             return;
         speed--;
     }
-    
+    /**
+     * Turns the car to the right when the argument is true for the direction right
+     * turns it to the left otherwise
+     * @param right direction right
+     */
     public void changeDirection(boolean right){
-        if(speed>=0){
+        if(speed>=0){    // if the car is moving forward
             if (right)
                 direction-=5;
             else
                 direction+=5;
         }
-        else{
+        else{            // if the car is moving backward
             if (right)
                 direction+=5;
             else
