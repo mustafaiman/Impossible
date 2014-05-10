@@ -55,7 +55,12 @@ public class HighScoreList {
         }
         return false;
     }
-    
+    /**
+     * Denemeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+     * @param score
+     * @param name
+     * @param targetPath 
+     */
     public void handleHighScore(int score, String name, String targetPath){
         
         for(int i = 0; i < scores.size(); i++){
