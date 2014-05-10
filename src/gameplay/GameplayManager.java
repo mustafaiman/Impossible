@@ -49,11 +49,8 @@ public class GameplayManager implements KeyListener, ActionListener {
         screen.setContentPane(panel);
         panel.requestFocus();
         parkingManager = new ParkingManager(1); //1 parking area only
-        pedestrianManager = new PedestrianManager(difficulty);
-        vehicleManager = new VehicleManager(difficulty);
-        
         screen.revalidate();
-        panel.requestFocus();
+        
         pedestrianManager = new PedestrianManager(diff);
         vehicleManager = new VehicleManager(diff);
         stillUpdating = false;
