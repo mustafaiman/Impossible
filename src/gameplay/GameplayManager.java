@@ -154,7 +154,9 @@ public class GameplayManager implements KeyListener, ActionListener {
             vehicleManager.enableProtection();
         }
         boolean inLot = parkingManager.checkIfParked((int)p.getX(), (int)p.getY(), 32, 64);
-        if(currentScore == 0 || (vehicleManager.getPCarSpeed() == 0 && inLot))
+        if(currentScore <= 0)
+            currentScore = 0;
+        if(currentScore <= 0 || (vehicleManager.getPCarSpeed() == 0 && inLot))
         {
             if(!DataManager.getInstance().isHighScore(stage, diff, currentScore)){
                     displayTimer.stop();

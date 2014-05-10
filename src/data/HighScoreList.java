@@ -42,6 +42,9 @@ public class HighScoreList {
     }
     
     public boolean isHighScore(int i){
+        if(i==0)
+            return false;
+        
         if (scores.size() < 5)
             return true;
         
