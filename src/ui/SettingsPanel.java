@@ -7,6 +7,10 @@ package ui;
 
 import java.awt.Graphics;
 import data.DataManager;
+import java.awt.Component;
+import java.awt.Toolkit;
+import java.awt.image.ImageProducer;
+import javax.swing.Icon;
 /**
  *
  * @author Ayhun
@@ -15,6 +19,7 @@ public class SettingsPanel extends javax.swing.JPanel {
     DataManager dataManager;
     data.Settings currentSettings;
     ScreenManager frame;
+    int currCar;
 
     /**
      * Creates new form SettingPanel
@@ -41,20 +46,38 @@ public class SettingsPanel extends javax.swing.JPanel {
         // set chosen car from difficulty
         switch(currentSettings.getCarID()){
             case 0 : car1.setSelected(true);
+                     currCar=0;
                      break;
             case 1 : car2.setSelected(true);
+                     currCar=1;
                      break;
             case 2 : car3.setSelected(true);
+                     currCar=2;
                      break;
             case 3 : car4.setSelected(true);
+                     currCar=3;
                      break;
             case 4 : car5.setSelected(true);
+                     currCar=4;
                      break;
         }
         
         
     }
 
+    
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        switch(currCar){
+            case 0:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/1.png"), 550, 370, 128, 128, this); break;
+            case 1:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/2.png"), 550, 370, 128, 128, this); break;
+            case 2:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/3.png"), 550, 370, 128, 128, this); break;
+            case 3:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/4.png"), 550, 370, 128, 128, this); break;
+            case 4:g.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/5.png"), 550, 370, 128, 128, this); break;
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,7 +96,6 @@ public class SettingsPanel extends javax.swing.JPanel {
         diffHard = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        carPanel = new javax.swing.JPanel();
         save = new javax.swing.JButton();
         cancel = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -127,19 +149,8 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Car :");
 
-        javax.swing.GroupLayout carPanelLayout = new javax.swing.GroupLayout(carPanel);
-        carPanel.setLayout(carPanelLayout);
-        carPanelLayout.setHorizontalGroup(
-            carPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 164, Short.MAX_VALUE)
-        );
-        carPanelLayout.setVerticalGroup(
-            carPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 164, Short.MAX_VALUE)
-        );
-
         save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        save.setText("Save");
+        save.setText("Ok");
         save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveActionPerformed(evt);
@@ -218,7 +229,7 @@ public class SettingsPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(save)
@@ -234,16 +245,13 @@ public class SettingsPanel extends javax.swing.JPanel {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(volume, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(car1)
-                                        .addComponent(car2)
-                                        .addComponent(car3)
-                                        .addComponent(car4)
-                                        .addComponent(car5))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(carPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(119, 119, 119)))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(car1)
+                                    .addComponent(car2)
+                                    .addComponent(car3)
+                                    .addComponent(car4)
+                                    .addComponent(car5)))
+                            .addGap(208, 208, 208)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,24 +271,19 @@ public class SettingsPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(diffHard))
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(car1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(car2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(car3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(car4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(car5))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(carPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(car1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(car2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(car3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(car4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(car5)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save)
@@ -291,6 +294,8 @@ public class SettingsPanel extends javax.swing.JPanel {
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
         dataManager.setSettings(currentSettings);
+        frame.setContentPane(new MainMenuPanel(frame));
+        frame.revalidate();
     }//GEN-LAST:event_saveActionPerformed
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
@@ -316,22 +321,32 @@ public class SettingsPanel extends javax.swing.JPanel {
 
     private void car1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car1MouseReleased
         currentSettings.setCarID(0);
+        currCar = 0;
+        this.getGraphics().drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/1.png"), 550, 370, 128, 128, this);
     }//GEN-LAST:event_car1MouseReleased
 
     private void car2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car2MouseReleased
         currentSettings.setCarID(1);
+        currCar = 1;
+        this.getGraphics().drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/2.png"), 550, 370, 128, 128, this);
     }//GEN-LAST:event_car2MouseReleased
 
     private void car3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car3MouseReleased
         currentSettings.setCarID(2);
+        currCar = 2;
+        this.getGraphics().drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/3.png"), 550, 370, 128, 128, this);
     }//GEN-LAST:event_car3MouseReleased
 
     private void car4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car4MouseReleased
         currentSettings.setCarID(3);
+        currCar = 3;
+        this.getGraphics().drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/4.png"), 550, 370, 128, 128, this);
     }//GEN-LAST:event_car4MouseReleased
 
     private void car5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_car5MouseReleased
         currentSettings.setCarID(4);
+        currCar = 4;
+        this.getGraphics().drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/5.png"), 550, 370, 128, 128, this);
     }//GEN-LAST:event_car5MouseReleased
 
 
@@ -343,7 +358,6 @@ public class SettingsPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton car4;
     private javax.swing.JRadioButton car5;
     private javax.swing.ButtonGroup carGroup;
-    private javax.swing.JPanel carPanel;
     private javax.swing.JRadioButton diffEasy;
     private javax.swing.JRadioButton diffHard;
     private javax.swing.JRadioButton diffMedium;
