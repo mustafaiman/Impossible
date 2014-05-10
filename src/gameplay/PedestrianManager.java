@@ -12,12 +12,18 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- *
+ * This is a class to perform operations on pedestrians
  * @author Mustafa
  */
 public class PedestrianManager {
     private int difficulty;
     ArrayList<Pedestrian> pedestrians;
+    
+    /**
+     * Manages all pedestrian objects in the current game initializing them 
+     * within a list of pedestrians
+     * @param diff difficulty level of the game
+     */
     public PedestrianManager(int diff)
     {
         difficulty = diff;
@@ -47,12 +53,24 @@ public class PedestrianManager {
             pedestrians.add(new AcademicPersonnel(random.nextInt(790),random.nextInt(590)));
         }
     }
+    
+    /**
+     * Advances all pedestrians in pedestrian list using advance method of Pedestrian class
+     */
     public void advance()
     {
         for(Pedestrian ped : pedestrians)
             ped.advance();
     }
-    
+    /**
+     * Checks if there is a collision between any pedestrian within pedestrians list
+     * and player's car
+     * @param x horizontal coordinate of the location of pedestrian
+     * @param y vertical coordinate of the location of pedestrian
+     * @param width width of pedestrian
+     * @param height height of pedestrian
+     * @return current score
+     */
     public int checkCollision(int x, int y, int width, int height)
     {
         int score = 0  ;
@@ -67,6 +85,12 @@ public class PedestrianManager {
         }
         return score;
     }
+    
+    /**
+     * Determines the type of a pedestrian
+     * @param index specifies the type of a pedestrian
+     * @return 0 if pedestrian is a student, 1 otherwise (=if academic personnel)
+     */
     public int getPedestrianType(int index)
     {
         if(pedestrians.get(index) instanceof Student)
@@ -74,6 +98,10 @@ public class PedestrianManager {
         else
             return 1;
     }
+    /**
+     * paints pedestrians onto panel
+     * @param g Graphic object
+     */
     public void paintComponent(Graphics g)
     {
         g.setFont(new Font("TimesRoman", Font.BOLD, 32)); 

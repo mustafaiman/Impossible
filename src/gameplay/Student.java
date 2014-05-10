@@ -10,7 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 /**
- *
+ * This class is for representing pedestrian of type Student
  * @author Mustafa
  */
 public class Student extends Pedestrian {
@@ -21,6 +21,11 @@ public class Student extends Pedestrian {
         radius = 10;
     }
     
+    /**
+     * Sets the color of pedestrian to red to distinguish it from an academic personnel and
+     * make it a student
+     * @param g Graphic g
+     */
     @Override
     public void paintPedestrian(Graphics g){
         
@@ -29,7 +34,10 @@ public class Student extends Pedestrian {
         g.setColor(Color.BLACK);
         g.drawOval(x,y,10,10);
     }
-
+    /**
+     * 
+     * @return true if a pedestrian is a student 
+     */
     @Override
     public boolean isStudent() {
         return true;
