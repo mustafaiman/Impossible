@@ -9,6 +9,7 @@ package gameplay;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.util.Random;
@@ -22,16 +23,23 @@ public class MobileCar extends Vehicle{
     public MobileCar(int x, int y) {
         super(x, y);
         random = new Random();
+        speed = 5;
+    }
+    public MobileCar(int x,int y,int type)
+    {
+        super(x,y,type);
+        random = new Random();
+        speed = 5;
     }
 
     @Override
     void advance() {
-        int tempx = x + (int)(-1*Math.cos(Math.toRadians(direction))*speed);
-        int tempy = y + (int)(Math.sin(Math.toRadians(direction))*speed);
-
-        if(tempx <= 800 && tempx >=0)
+        int tempx = x + (int)(Math.cos(Math.toRadians(direction))*speed);
+        int tempy = y + (int)(-1*Math.sin(Math.toRadians(direction))*speed);
+        
+        if(tempx <= 750 && tempx >=0)
             x = tempx;
-        if(tempy <= 600 && tempy >=0)
+        if(tempy <= 570 && tempy >=0)
             y = tempy;
         if(tempx < 0 || tempx > 800 || tempy < 0 || tempy > 600)
             changeDirection();
@@ -41,14 +49,15 @@ public class MobileCar extends Vehicle{
 
     @Override
     void paint(Graphics g) {
-        g.drawImage(rotate(Toolkit.getDefaultToolkit().getImage("images/cars/defaultCar.png"),direction), x, y, 64, 64, null);
+        g.drawImage(rotate(carImage,direction), x, y, 64, 64, null);
     }
 
-    private void changeDirection() {
-        direction = random.nextInt(360);
+    protected void changeDirection() {
+        direction += random.nextInt(20)-20;
+        
     }
 
-    private void possiblyChangeDirection() {
+    protected void possiblyChangeDirection() {
         int changeDirectionChance = random.nextInt(100);
         if(changeDirectionChance >=96)
             changeDirection();

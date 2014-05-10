@@ -6,6 +6,8 @@
 
 package gameplay;
 
+import data.DataManager;
+
 /**
  *
  * @author ayhun
@@ -13,7 +15,9 @@ package gameplay;
 public class PlayerCar extends MobileCar{
 
     public PlayerCar(int x, int y) {
-        super(x, y);
+        
+        super(x, y, DataManager.getInstance().getSettings().getCarID()+1);
+        speed=0;
     }
     
     @Override

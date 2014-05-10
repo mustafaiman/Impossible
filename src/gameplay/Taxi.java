@@ -6,14 +6,28 @@
 
 package gameplay;
 
+import java.awt.Graphics;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Home-PC
  */
-public class Taxi extends MobileCar{
+public class Taxi extends MobileCar {
 
     public Taxi(int x, int y) {
-        super(x, y);
+        super(x, y,6);
+        speed = 10;
+        carTypeId = 6;
     }
+    
+    @Override
+    protected void possiblyChangeDirection() {
+        int changeDirectionChance = random.nextInt(100);
+        if(changeDirectionChance >=90)
+            changeDirection();
+    }
+    
+    
     
 }
