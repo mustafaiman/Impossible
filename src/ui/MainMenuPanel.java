@@ -27,12 +27,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
      */
     public MainMenuPanel(ScreenManager frame) {
         initComponents();
-        this.frame = frame;
-        
-      /*  jButton1.setBackground(Color.yellow);
-        jButton1.setForeground(new Color(0, 128, 0));
-        jButton1.setFont(new Font("Verdana", Font.BOLD, 20)); */
-        
+        this.frame = frame;       
         backGroundImage = Toolkit.getDefaultToolkit().getImage("images/CarPark.jpg");
         
         setPreferredSize(new Dimension(800, 600));
@@ -172,10 +167,14 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        frame.setContentPane(new HelpPanel(frame));
+        frame.revalidate();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        frame.setContentPane(new CreditsPanel(frame));
+        frame.revalidate();
     }//GEN-LAST:event_jButton5ActionPerformed
 
 

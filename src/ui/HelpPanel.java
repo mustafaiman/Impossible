@@ -10,14 +10,14 @@ package ui;
  *
  * @author Dilara
  */
-public class CreditsPanel extends javax.swing.JPanel {
+public class HelpPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form Credits
-     */    
+     * Creates new form HelpPanel
+     */
     ScreenManager frame;
     
-    public CreditsPanel(ScreenManager frame) {
+    public HelpPanel(ScreenManager frame) {
         initComponents();
         this.frame=frame;
     }
@@ -32,16 +32,19 @@ public class CreditsPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 153));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jTextArea2.setRows(5);
-        jTextArea2.setText("\nIMPOSSIBLE PARK\n2014\n\nDEVELOPERS:\n\nAyhun TEKAT\t\t\t\tİnci BODUROGLU\nAnkara/ Turkey\t\t\tAnkara/ Turkey\nBilkent University CS 15'\t\t\tBilkent University CS 16'\nayhuntekat@gmail.com \t\t\tinciboduroglu@gmail.com\n\nDilara TUNC\t\t\t\tMustafa IMAN\nAnkara/ Turkey\t\t\tAnkara/ Turkey\nBilkent University CS 16'\t\t\tBilkent University CS 16'\ndilaratunc@gmail.com \t\t\tmustafaiman@gmail.com");
-        jScrollPane1.setViewportView(jTextArea2);
+        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Welcome :)\n\nYour goal in Impossible Park will be to park your car to the parking lot closest to \nyour target Bilkent building; of course as soon as possible :)\n\nYou can choose among 6 stages all of which have a different target\nand start the game.\n\nYou will be using arrow keys to move your car during game.\nArrow keys make your car turn left/ right and accelerate it\nin the direction which you press.\n\n..and scoring:\n\n For every passing second, you will loose 100 points.\n If you crash into a car, your score will be reduced by 2000.\n If you run over a student,your score will be reduced by 2750.\n If you run over an academic personnel, your score will be reduced by 2500.\n When you park your car, your score will be increased by an amount\nthat will be calculated according to the distance between \nthe parking slot and your target building.");
+        jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 0));
         jButton1.setText("Main Menu");
@@ -56,22 +59,22 @@ public class CreditsPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 738, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -86,6 +89,6 @@ public class CreditsPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

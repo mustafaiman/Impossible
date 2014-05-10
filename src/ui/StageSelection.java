@@ -36,7 +36,8 @@ class StageSelectionPanel extends JPanel implements ActionListener {
         titleLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         titleLabel.setText(" Choose a stage");
 
-        mainMenuButton.setText("Back");        
+        mainMenuButton.setText("Back");
+        mainMenuButton.setBackground(new java.awt.Color(255, 255, 51));
                
         BIcon=new ImageIcon("images/B.jpg");
         EEIcon=new ImageIcon("images/EEE.jpg");

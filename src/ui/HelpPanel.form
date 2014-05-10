@@ -22,15 +22,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace pref="78" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton1" min="-2" pref="140" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="139" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="738" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="650" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -39,10 +39,10 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="399" max="-2" attributes="0"/>
-              <EmptySpace pref="68" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="402" max="-2" attributes="0"/>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <Component id="jButton1" min="-2" pref="46" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -50,17 +50,27 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="0" red="0" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder/>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea2">
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Calibri" size="14" style="1"/>
+              <Font name="Comic Sans MS" size="16" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="&#xa;IMPOSSIBLE PARK&#xa;2014&#xa;&#xa;DEVELOPERS:&#xa;&#xa;Ayhun TEKAT&#x9;&#x9;&#x9;&#x9;&#x130;nci BODUROGLU&#xa;Ankara/ Turkey&#x9;&#x9;&#x9;Ankara/ Turkey&#xa;Bilkent University CS 15&apos;&#x9;&#x9;&#x9;Bilkent University CS 16&apos;&#xa;ayhuntekat@gmail.com &#x9;&#x9;&#x9;inciboduroglu@gmail.com&#xa;&#xa;Dilara TUNC&#x9;&#x9;&#x9;&#x9;Mustafa IMAN&#xa;Ankara/ Turkey&#x9;&#x9;&#x9;Ankara/ Turkey&#xa;Bilkent University CS 16&apos;&#x9;&#x9;&#x9;Bilkent University CS 16&apos;&#xa;dilaratunc@gmail.com &#x9;&#x9;&#x9;mustafaiman@gmail.com"/>
+            <Property name="text" type="java.lang.String" value="Welcome :)&#xa;&#xa;Your goal in Impossible Park will be to park your car to the parking lot closest to &#xa;your target Bilkent building; of course as soon as possible :)&#xa;&#xa;You can choose among 6 stages all of which have a different target&#xa;and start the game.&#xa;&#xa;You will be using arrow keys to move your car during game.&#xa;Arrow keys make your car turn left/ right and accelerate it&#xa;in the direction which you press.&#xa;&#xa;..and scoring:&#xa;&#xa;&#xf0b7; For every passing second, you will loose 100 points.&#xa;&#xf0b7; If you crash into a car, your score will be reduced by 2000.&#xa;&#xf0b7; If you run over a student,your score will be reduced by 2750.&#xa;&#xf0b7; If you run over an academic personnel, your score will be reduced by 2500.&#xa;&#xf0b7; When you park your car, your score will be increased by an amount&#xa;that will be calculated according to the distance between &#xa;the parking slot and your target building."/>
           </Properties>
         </Component>
       </SubComponents>
