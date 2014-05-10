@@ -23,4 +23,11 @@ public class PlayerCar extends MobileCar{
     public void decelerate(){
         speed--;
     }
+    
+    public void changeDirection(boolean right){
+        if (right)
+            direction--;
+        else
+            direction++;
+    }
 }
