@@ -82,4 +82,9 @@ public class VehicleManager {
             
         }
     }
+    
+    public int getPCarSpeed()
+    {
+        return pCar.getSpeed();
+    }
 }

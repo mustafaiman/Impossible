@@ -96,4 +96,9 @@ public abstract class Vehicle {
     public Point getLocation(){
         return new Point(x, y);
     }
+    
+    public int getSpeed()
+    {
+        return speed;
+    }
 }

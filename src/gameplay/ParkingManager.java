@@ -19,7 +19,7 @@ public class ParkingManager {
     {
         parkingAreas = new ArrayList<ParkingArea>();
         for(int i=0;i<num;i++)
-            parkingAreas.add(new ParkingArea(0,0,3,false));
+            parkingAreas.add(new ParkingArea(150,0,3,false));
     }
     public boolean checkIfParked(int x,int y,int width,int height)
     {
