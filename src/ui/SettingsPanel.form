@@ -209,8 +209,6 @@
         <Property name="text" type="java.lang.String" value="Car :"/>
       </Properties>
     </Component>
-<<<<<<< HEAD
-=======
     <Container class="javax.swing.JPanel" name="carPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -231,7 +229,6 @@
         </DimensionLayout>
       </Layout>
     </Container>
->>>>>>> 6fac6b2d6ed1b777a3516093bb2a7347c265a7b2
     <Component class="javax.swing.JButton" name="save">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

@@ -154,23 +154,6 @@ public class SettingsPanel extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Car :");
-
-<<<<<<< HEAD
-=======
-        carPanel.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout carPanelLayout = new javax.swing.GroupLayout(carPanel);
-        carPanel.setLayout(carPanelLayout);
-        carPanelLayout.setHorizontalGroup(
-            carPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 164, Short.MAX_VALUE)
-        );
-        carPanelLayout.setVerticalGroup(
-            carPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 164, Short.MAX_VALUE)
-        );
-
->>>>>>> 6fac6b2d6ed1b777a3516093bb2a7347c265a7b2
         save.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         save.setText("Ok");
         save.addActionListener(new java.awt.event.ActionListener() {
