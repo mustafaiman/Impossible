@@ -48,7 +48,7 @@ public class ParkingManager {
     }
     /**
      * Tells ParkingArea's to draw themselves.
-     * @param g 
+     * @param g Graphics object
      */
     public void paintComponent(Graphics g)
     {
