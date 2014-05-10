@@ -17,7 +17,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author Ayhun, Dilara
+ * @author Dilara, ayhun
  */
 public class MainMenuPanel extends javax.swing.JPanel {
     ScreenManager frame;
@@ -29,9 +29,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
         initComponents();
         this.frame = frame;
         
-        jButton1.setBackground(Color.yellow);
+      /*  jButton1.setBackground(Color.yellow);
         jButton1.setForeground(new Color(0, 128, 0));
-        jButton1.setFont(new Font("Verdana", Font.BOLD, 20));
+        jButton1.setFont(new Font("Verdana", Font.BOLD, 20)); */
         
         backGroundImage = Toolkit.getDefaultToolkit().getImage("images/CarPark.jpg");
         
@@ -59,6 +59,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 0));
+        jButton1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 153, 0));
         jButton1.setText("Play Game");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +69,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 153, 0));
         jButton2.setText("Settings");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +79,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 0));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 153, 0));
         jButton3.setText("High Scores");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +89,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(255, 255, 0));
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 153, 0));
         jButton4.setText("Tutorial");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +99,9 @@ public class MainMenuPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(255, 255, 0));
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(0, 153, 0));
         jButton5.setText("Credits");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
