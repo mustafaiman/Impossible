@@ -41,8 +41,10 @@ public class MobileCar extends Vehicle{
             x = tempx;
         if(tempy <= 570 && tempy >=0)
             y = tempy;
-        if(tempx < 0 || tempx > 800 || tempy < 0 || tempy > 600)
+        if(tempx < 0 || tempx > 750 || tempy < 0 || tempy > 570) {
             changeDirection();
+            direction +=random.nextInt(50)+150;
+        }
         else
             possiblyChangeDirection();
     }
@@ -53,7 +55,7 @@ public class MobileCar extends Vehicle{
     }
 
     protected void changeDirection() {
-        direction += random.nextInt(20)-20;
+        direction += random.nextInt(30)-15;
         
     }
 

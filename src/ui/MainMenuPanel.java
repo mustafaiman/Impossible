@@ -36,7 +36,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(backGroundImage, 1, 1, null);
+        g.drawImage(backGroundImage, 1, 1, this);
     }
 
     /**

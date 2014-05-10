@@ -54,11 +54,11 @@ public class PedestrianManager {
             ped.advance();
     }
     
-    public int checkCollision(int x, int y, int width, int height, int direction)
+    public int checkCollision(int x, int y, int width, int height)
     {
         int score = 0  ;
         for(int i=0;i<pedestrians.size();i++) {
-            if( pedestrians.get(i).checkCollision(x, y, width, height, direction) ){
+            if( pedestrians.get(i).checkCollision(x, y, width, height) ){
                 if(pedestrians.get(i).isStudent())
                     score = 10;
                 else

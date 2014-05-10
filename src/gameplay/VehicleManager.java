@@ -58,9 +58,8 @@ public class VehicleManager {
         Point p;
         for(Vehicle v : vehicles){
             p=v.getLocation();
-            if(p.getX() > x && p.getX() < x+width)
-                if(p.getY()> y && p.getY() < y+height)
-                    return true;           
+            if(v.checkCollision(x, y, width, height))
+                return true;           
         }
         return false;
 

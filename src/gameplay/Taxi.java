@@ -24,8 +24,12 @@ public class Taxi extends MobileCar {
     @Override
     protected void possiblyChangeDirection() {
         int changeDirectionChance = random.nextInt(100);
-        if(changeDirectionChance >=90)
+        if(changeDirectionChance >=80)
             changeDirection();
+    }
+    
+    protected void changeDirection() {
+        direction += random.nextInt(70)-35;
     }
     
     

@@ -6,13 +6,15 @@
 
 package gameplay;
 
-import ui.ImageTool;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.geom.PathIterator;
 import java.awt.image.BufferedImage;
+import ui.ImageTool;
 
 /**
  *
@@ -54,6 +56,22 @@ public abstract class Vehicle {
     abstract void advance();
     
     abstract void paint(Graphics g);
+    
+    public boolean checkCollision(int x,int y,int width,int height)
+    {
+        Rectangle rectC = new Rectangle(x,y,width,height);
+        Rectangle rectA = new Rectangle(this.x,this.y,32,64);
+        PathIterator it = rectA.getPathIterator(null);
+        while(!it.isDone()) {
+            double[] coords = new double[2];
+            it.currentSegment(coords);
+            if(rectC.contains(coords[0],coords[1]))
+                return true;
+            // At this point, coords contains the coordinates of one of the vertices. This is where you should check to make sure the vertex is inside your circle
+            it.next(); // go to the next point
+        }
+        return false;
+    }
     
     public Image rotate(Image img, double angle)
     {

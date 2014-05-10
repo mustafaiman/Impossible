@@ -52,7 +52,7 @@ public abstract class Pedestrian {
     {
         direction = random.nextInt(360);
     }
-    protected boolean checkCollision(int x, int y, int width, int height, int direction) {
+    protected boolean checkCollision(int x, int y, int width, int height) {
         
         Rectangle rect = new Rectangle(x,y,width,height);
         if(rect.contains(new Point(this.x,this.y)))

@@ -121,7 +121,8 @@ public class GameplayManager implements KeyListener, ActionListener {
         pedestrianManager.advance();
         vehicleManager.advance();
         Point p = vehicleManager.getPCarLocation();
-        currentScore -= pedestrianManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64, 0);
+        currentScore -= pedestrianManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64);
+        System.out.println(vehicleManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64));
         panel.repaint();
         
         stillUpdating = false;
