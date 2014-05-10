@@ -16,33 +16,30 @@ public class PlayerCar extends MobileCar{
         super(x, y);
     }
     
+    @Override
     public void advance()
     {
-        int tempx = x + (int)(-1*Math.sin(Math.toRadians(direction))*speed);
-        int tempy = y + (int)(Math.cos(Math.toRadians(direction))*speed);
-
-        if(tempx <= 800 && tempx >=0)
-            x = tempx;
-        if(tempy <= 600 && tempy >=0)
-            y = tempy;
+        x = x + (int)(Math.cos(Math.toRadians(direction))*speed);
+        y = y + (int)(-1*Math.sin(Math.toRadians(direction))*speed);
+        
     }
     
     public void accelerate(){
-        if (speed > 50)
+        if (speed > 12)
             return;
         speed++;
     }
     
     public void decelerate(){
-        if (speed < -25)
+        if (speed < -5)
             return;
         speed--;
     }
     
     public void changeDirection(boolean right){
         if (right)
-            direction--;
+            direction-=5;
         else
-            direction++;
+            direction+=5;
     }
 }

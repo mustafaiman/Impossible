@@ -55,7 +55,7 @@ public class PedestrianManager {
     }
     public void killPedestrian(int id)
     {
-        if(id >= pedestrians.size() )
+        if(id <=0 || id >= pedestrians.size()  )
             return;
         pedestrians.remove(id);
     }

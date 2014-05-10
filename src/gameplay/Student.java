@@ -23,10 +23,11 @@ public class Student extends Pedestrian {
     
     @Override
     public void paintPedestrian(Graphics g){
-        g.setColor(Color.BLUE);
-        g.fillRect(x,y,10,10);
+        
+        g.setColor(Color.RED);
+        g.fillOval(x,y,10,10);
         g.setColor(Color.BLACK);
-        g.drawRect(x,y,10,10);  
+        g.drawOval(x,y,10,10);
     }
 
 }

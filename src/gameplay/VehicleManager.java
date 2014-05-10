@@ -66,6 +66,11 @@ public class VehicleManager {
 
     }
     
+    public Point getPCarLocation()
+    {
+        return pCar.getLocation();
+    }
+    
     public void movePCar(int code)
     {
         switch(code)

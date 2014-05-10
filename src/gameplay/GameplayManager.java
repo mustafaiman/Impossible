@@ -8,6 +8,7 @@ package gameplay;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -24,10 +25,9 @@ public class GameplayManager implements KeyListener, ActionListener {
     protected PedestrianManager pedestrianManager;
     protected VehicleManager vehicleManager;
     protected ScreenManager screen;
-    private Timer timer;
     protected GameplayPanel panel;
     private boolean stillUpdating;
-    private Timer displayTimer = new Timer(250, this);
+    private Timer displayTimer = new Timer(100, this);
 
     public GameplayManager(int level, int difficulty)
     {
@@ -66,7 +66,6 @@ public class GameplayManager implements KeyListener, ActionListener {
                 // handle right
                 break;
         }
-        panel.repaint();
     }
 
     @Override
@@ -79,9 +78,6 @@ public class GameplayManager implements KeyListener, ActionListener {
         if(e.getKeyChar()=='k') {
             pedestrianManager.killPedestrian(0);
         }
-        System.out.println(pedestrianManager.checkCollision(300, 300, 50, 70, 0));
-        pedestrianManager.advance();
-        panel.repaint();
     }
 
     @Override
@@ -92,8 +88,11 @@ public class GameplayManager implements KeyListener, ActionListener {
         }
         stillUpdating = true;
         
-        System.out.println(pedestrianManager.checkCollision(300, 300, 50, 70, 0));
         pedestrianManager.advance();
+        vehicleManager.advance();
+        Point p = vehicleManager.getPCarLocation();
+        int crashId = pedestrianManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64, 0);
+        pedestrianManager.killPedestrian(crashId);
         panel.repaint();
         
         stillUpdating = false;
@@ -107,7 +106,6 @@ public class GameplayManager implements KeyListener, ActionListener {
         public void paintComponent(Graphics g)
         {
             super.paintComponent(g);
-            g.drawRect(275, 265, 50, 70);
             pedestrianManager.paintComponent(g);
             vehicleManager.paintComponent(g);
             

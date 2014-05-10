@@ -26,8 +26,8 @@ public class MobileCar extends Vehicle{
 
     @Override
     void advance() {
-        int tempx = x + (int)(-1*Math.sin(Math.toRadians(direction))*speed);
-        int tempy = y + (int)(Math.cos(Math.toRadians(direction))*speed);
+        int tempx = x + (int)(-1*Math.cos(Math.toRadians(direction))*speed);
+        int tempy = y + (int)(Math.sin(Math.toRadians(direction))*speed);
 
         if(tempx <= 800 && tempx >=0)
             x = tempx;
@@ -41,10 +41,7 @@ public class MobileCar extends Vehicle{
 
     @Override
     void paint(Graphics g) {
-        Graphics2D g2d = (Graphics2D)g;
-        g2d.rotate(Math.toRadians(direction));
-        g2d.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/defaultCar.png"), x, y, 64, 64, null);
-        g2d.rotate(Math.toRadians(-direction));
+        g.drawImage(rotate(Toolkit.getDefaultToolkit().getImage("images/cars/defaultCar.png"),direction), x, y, 64, 64, null);
     }
 
     private void changeDirection() {
@@ -53,7 +50,7 @@ public class MobileCar extends Vehicle{
 
     private void possiblyChangeDirection() {
         int changeDirectionChance = random.nextInt(100);
-        if(changeDirectionChance >=90)
+        if(changeDirectionChance >=96)
             changeDirection();
     }
     

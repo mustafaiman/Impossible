@@ -23,9 +23,9 @@ public class AcademicPersonnel extends Pedestrian {
     
     @Override
     public void paintPedestrian(Graphics g){
-        g.setColor(Color.RED);
-        g.fillRect(x,y,10,10);
+        g.setColor(Color.BLUE);
+        g.fillOval(x,y,10,10);
         g.setColor(Color.BLACK);
-        g.drawRect(x,y,10,10);  
+        g.drawOval(x,y,10,10); 
     }
 }
