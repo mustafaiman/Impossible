@@ -16,6 +16,7 @@ import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import ui.MainMenuPanel;
 import ui.ScreenManager;
 
 /**
@@ -94,6 +95,8 @@ public class GameplayManager implements KeyListener, ActionListener {
 
         if(dialogButton == JOptionPane.YES_OPTION){ 
             //TODO: nasıl çıkacazzzz
+            screen.setContentPane(new MainMenuPanel(screen));
+            screen.revalidate();
         }
         else{
             displayTimer.start();
