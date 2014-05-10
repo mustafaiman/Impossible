@@ -29,9 +29,11 @@ public class GameplayManager implements KeyListener, ActionListener {
     protected GameplayPanel panel;
     private boolean stillUpdating;
     private Timer displayTimer = new Timer(100, this);
+    private int currentScore;
 
     public GameplayManager(int level, int difficulty)
     {
+        currentScore = 2000;
         screen = ui.ScreenManager.getInstance();
         panel = new GameplayPanel();
         panel.setFocusable(true);
@@ -105,9 +107,7 @@ public class GameplayManager implements KeyListener, ActionListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getKeyChar()=='k') {
-            pedestrianManager.killPedestrian(0);
-        }
+        
     }
 
     @Override
@@ -121,8 +121,7 @@ public class GameplayManager implements KeyListener, ActionListener {
         pedestrianManager.advance();
         vehicleManager.advance();
         Point p = vehicleManager.getPCarLocation();
-        int crashId = pedestrianManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64, 0);
-        pedestrianManager.killPedestrian(crashId);
+        currentScore -= pedestrianManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64, 0);
         panel.repaint();
         
         stillUpdating = false;

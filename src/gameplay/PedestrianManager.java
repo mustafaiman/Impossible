@@ -53,19 +53,20 @@ public class PedestrianManager {
         for(Pedestrian ped : pedestrians)
             ped.advance();
     }
-    public void killPedestrian(int id)
-    {
-        if(id <=0 || id >= pedestrians.size()  )
-            return;
-        pedestrians.remove(id);
-    }
+    
     public int checkCollision(int x, int y, int width, int height, int direction)
     {
+        int score = 0  ;
         for(int i=0;i<pedestrians.size();i++) {
-            if( pedestrians.get(i).checkCollision(x, y, width, height, direction) )
-                return i;
+            if( pedestrians.get(i).checkCollision(x, y, width, height, direction) ){
+                if(pedestrians.get(i).isStudent())
+                    score = 10;
+                else
+                    score = 20;
+                pedestrians.remove(i);
+            }
         }
-        return -1;
+        return score;
     }
     public int getPedestrianType(int index)
     {

@@ -118,22 +118,27 @@ class StageSelectionPanel extends JPanel implements ActionListener {
         }
         else if ( event.getSource() == stage1Button){
             System.out.println("Stage 1");
-            new GameplayManager(1,0);
+            new GameplayManager(1,data.DataManager.getInstance().getSettings().getDifficulty());
         }
         else if ( event.getSource() == stage2Button){
             System.out.println("Stage 2");
+            new GameplayManager(2,data.DataManager.getInstance().getSettings().getDifficulty());
         }
         else if ( event.getSource() == stage3Button){
             System.out.println("Stage 3");
+            new GameplayManager(3,data.DataManager.getInstance().getSettings().getDifficulty());
         }
         else if ( event.getSource() == stage4Button){
             System.out.println("Stage 4");
+            new GameplayManager(4,data.DataManager.getInstance().getSettings().getDifficulty());
         }
         else if ( event.getSource() == stage5Button){
             System.out.println("Stage 5");
+            new GameplayManager(5,data.DataManager.getInstance().getSettings().getDifficulty());
         }
         else if ( event.getSource() == stage6Button){
             System.out.println("Stage 6");
+            new GameplayManager(6,data.DataManager.getInstance().getSettings().getDifficulty());
             System.err.println("Stage 7");
         }
     }

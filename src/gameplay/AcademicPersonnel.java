@@ -28,4 +28,9 @@ public class AcademicPersonnel extends Pedestrian {
         g.setColor(Color.BLACK);
         g.drawOval(x,y,10,10); 
     }
+
+    @Override
+    public boolean isStudent() {
+        return false;
+    }
 }

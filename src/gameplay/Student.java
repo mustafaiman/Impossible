@@ -30,4 +30,9 @@ public class Student extends Pedestrian {
         g.drawOval(x,y,10,10);
     }
 
+    @Override
+    public boolean isStudent() {
+        return true;
+    }
+
 }

@@ -60,5 +60,6 @@ public abstract class Pedestrian {
         return false;
     }
     
+    public abstract boolean isStudent();
     abstract void paintPedestrian(Graphics g);
 }
