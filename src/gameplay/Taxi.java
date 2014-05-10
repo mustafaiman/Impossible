@@ -6,9 +6,6 @@
 
 package gameplay;
 
-import java.awt.Graphics;
-import java.awt.Toolkit;
-
 /**
  *
  * @author Home-PC
