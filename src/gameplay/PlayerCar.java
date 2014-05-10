@@ -17,10 +17,14 @@ public class PlayerCar extends MobileCar{
     }
     
     public void accelerate(){
+        if (speed > 50)
+            return;
         speed++;
     }
     
     public void decelerate(){
+        if (speed < -25)
+            return;
         speed--;
     }
     
