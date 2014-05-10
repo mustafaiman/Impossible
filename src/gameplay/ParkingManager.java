@@ -15,6 +15,13 @@ import java.util.ArrayList;
  */
 public class ParkingManager {
     private ArrayList<ParkingArea> parkingAreas;
+    /**
+     * Constructor of the parking manager
+     * @param x
+     * @param y
+     * @param num
+     * @param orientation 
+     */
     public ParkingManager(int x, int y,int num,boolean orientation)
     {
         parkingAreas = new ArrayList<ParkingArea>();

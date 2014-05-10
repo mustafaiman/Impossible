@@ -17,7 +17,7 @@ import java.awt.image.BufferedImage;
 import ui.ImageTool;
 
 /**
- *
+ * Represents a single vehicle
  * @author ayhun
  */
 public abstract class Vehicle {
@@ -28,6 +28,11 @@ public abstract class Vehicle {
     protected int carTypeId;
     protected Image carImage;
     
+    /**
+     * Constructor of the Vehicle class. Takes the initial location
+     * @param x x coordinate of the initial location
+     * @param y y coordinate of the initial location
+     */
     public Vehicle(int x,int y)
     {
         this.x = x;
@@ -37,6 +42,13 @@ public abstract class Vehicle {
         carTypeId = 0;
         carImage = Toolkit.getDefaultToolkit().getImage("images/cars/defaultCar.png");
     }
+    
+    /**
+     * Constructor of the Vehicle class. Takes initial location and the type of the vehicle that is constructed.
+     * @param x x coordinate of the initial location
+     * @param y y coordinate of the initial location
+     * @param carType Type of the car
+     */
     public Vehicle(int x,int y,int carType)
     {
         this.x = x;
@@ -53,10 +65,25 @@ public abstract class Vehicle {
         
     }
     
+    /**
+     * Advances the car. Will be called periodically.
+     */
     abstract void advance();
     
+    /**
+     * Paints the vehicle
+     * @param g Graphics object
+     */
     abstract void paint(Graphics g);
     
+    /**
+     * Checks if there is a collision with the player car
+     * @param x x coordinate of the player's car
+     * @param y x coordinate of the player's car
+     * @param width width of the player's car
+     * @param height height of the player's car
+     * @return returns a boolean value
+     */
     public boolean checkCollision(int x,int y,int width,int height)
     {
         Rectangle rectC = new Rectangle(x,y,width,height);
@@ -73,6 +100,12 @@ public abstract class Vehicle {
         return false;
     }
     
+    /**
+     * Rotates the image. This method is used when player tries to change the direction of the car
+     * @param img image of the car that is going to be rotated
+     * @param angle magnitude of the rotation
+     * @return  returns the rotated version of the input image
+     */
     public Image rotate(Image img, double angle)
     {
         double sin = Math.abs(Math.sin(Math.toRadians(angle))),
@@ -93,10 +126,19 @@ public abstract class Vehicle {
 
         return ImageTool.toImage(bimg);
     }
+    
+    /**
+     * Provides the location of the vehicle.
+     * @return returns a point object
+     */
     public Point getLocation(){
         return new Point(x, y);
     }
     
+    /**
+     * Returns the speed of the vehicle
+     * @return speed info
+     */
     public int getSpeed()
     {
         return speed;
