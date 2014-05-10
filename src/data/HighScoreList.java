@@ -6,6 +6,10 @@
 
 package data;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +26,7 @@ public class HighScoreList {
         scores = new ArrayList<Integer>();
         buffer = scoreInfo.split(",");
         
-        for(int i = buffer.length - 2; i >= 0 ; i = i - 2 ){
+        for(int i = 0; i <= buffer.length - 2 ; i = i + 2 ){
             names.add(buffer[i]);
             scores.add(Integer.parseInt(buffer[i+1]));
         }
@@ -38,11 +42,44 @@ public class HighScoreList {
     }
     
     public boolean isHighScore(int i){
+        if (scores.size() < 5)
+            return true;
+        
         for(int j: scores){
             if(i > j){
                 return true;
             }
         }
         return false;
+    }
+    
+    public void handleHighScore(int score, String name, String targetPath){
+        
+        for(int i = scores.size()-1; i >= 0; i--){
+            if(scores.get(i)<=score){
+                scores.add(i, score);
+                names.add(i, name);
+                break;
+            }
+        }
+        if(scores.size() > 5){
+            scores.remove(scores.size()-1);
+            names.remove(names.size()-1);
+        }
+        
+        try (BufferedWriter  wr = new BufferedWriter (new FileWriter (targetPath))) {
+            for(int i = 0 ; i < scores.size();i++){
+                if(i==scores.size()-1){
+                    wr.write(names.get(i)+","+scores.get(i));
+                    break;
+                }
+                wr.write(names.get(i)+","+scores.get(i)+",");
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.toString());
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        }
+        
     }
 }

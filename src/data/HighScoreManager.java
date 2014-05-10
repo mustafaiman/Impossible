@@ -7,8 +7,10 @@
 package data;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -46,5 +48,9 @@ public class HighScoreManager {
     
     public boolean isHighScore(int stage, int diff, int score){
         return getHighScores(stage, diff).isHighScore(score) ;
+    }
+    
+    public void handleHighScore(int stage, int diff, int score, String name){
+        getHighScores(stage, diff).handleHighScore(score, name, targetPath);
     }
 }
