@@ -35,7 +35,10 @@ public class GameplayManager implements KeyListener, ActionListener {
     private Timer displayTimer = new Timer(100, this);
     private int currentScore, scoreDivider;
     private int stage, diff;
-
+    private final int parealocx[]={0,150,0,250,400,0,530};
+    private final int parealocy[]={0,0,50,510,0,330,0};
+    private final boolean pareaorientation[]={false,false,true,false,false,true,false};
+    
     public GameplayManager(int stage, int diff)
     {
         this.stage=stage;
@@ -48,7 +51,7 @@ public class GameplayManager implements KeyListener, ActionListener {
         panel.addKeyListener(this);
         screen.setContentPane(panel);
         panel.requestFocus();
-        parkingManager = new ParkingManager(1); //1 parking area only
+        parkingManager = new ParkingManager(parealocx[stage],parealocy[stage],1,pareaorientation[stage]); //1 parking area only
         screen.revalidate();
         
         pedestrianManager = new PedestrianManager(diff);

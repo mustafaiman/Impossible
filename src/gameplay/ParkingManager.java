@@ -15,11 +15,11 @@ import java.util.ArrayList;
  */
 public class ParkingManager {
     private ArrayList<ParkingArea> parkingAreas;
-    public ParkingManager(int num)
+    public ParkingManager(int x, int y,int num,boolean orientation)
     {
         parkingAreas = new ArrayList<ParkingArea>();
         for(int i=0;i<num;i++)
-            parkingAreas.add(new ParkingArea(150,0,3,false));
+            parkingAreas.add(new ParkingArea(x,y,3,orientation));
     }
     public boolean checkIfParked(int x,int y,int width,int height)
     {

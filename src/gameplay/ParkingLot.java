@@ -6,6 +6,7 @@
 
 package gameplay;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -41,14 +42,14 @@ public class ParkingLot {
                 continue;
             if(!rect.contains(coords[0],coords[1]))
                 return false;
-            // At this point, coords contains the coordinates of one of the vertices. This is where you should check to make sure the vertex is inside your circle
-             // go to the next point
         }
         return true;
     }
 
     void paintParkingLot(Graphics g) {
         g.drawImage(bg, x, y, width, height, null);
+        g.setColor(Color.yellow);
         g.drawRect(x, y, width, height);
+        g.setColor(Color.black);
     }
 }
