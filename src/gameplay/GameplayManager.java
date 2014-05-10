@@ -147,12 +147,23 @@ public class GameplayManager implements KeyListener, ActionListener {
         Point p = vehicleManager.getPCarLocation();
         currentScore -= pedestrianManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64);
         if (!vehicleManager.isProtectionEnabled() && vehicleManager.checkCollision((int)p.getX(), (int)p.getY(), 32, 64)) {
-            currentScore -= 30;
+            currentScore -= 70;
             vehicleManager.enableProtection();
         }
         boolean inLot = parkingManager.checkIfParked((int)p.getX(), (int)p.getY(), 32, 64);
-        if(vehicleManager.getPCarSpeed() == 0 && inLot)
-            System.out.println("Success!");
+        if(currentScore == 0 || (vehicleManager.getPCarSpeed() == 0 && inLot))
+        {
+            if(!DataManager.getInstance().isHighScore(stage, diff, currentScore)){
+                    displayTimer.stop();
+                    JOptionPane.showConfirmDialog (null, "You have failed to make it to high score table\nYour score:"+currentScore,"Looser",JOptionPane.PLAIN_MESSAGE);
+                    screen.setContentPane(new MainMenuPanel(screen));//new NewHighscorePanel(screen,stage,diff,currentScore));
+                    screen.revalidate();    
+            } else {
+                    displayTimer.stop();
+                    screen.setContentPane(new NewHighscorePanel(screen, stage, diff, currentScore));
+                    screen.revalidate();
+            }
+        }
         
         panel.repaint();
         
@@ -172,7 +183,7 @@ public class GameplayManager implements KeyListener, ActionListener {
             pedestrianManager.paintComponent(g);
             vehicleManager.paintComponent(g);
             g.drawString(""+currentScore, 50, 50);
-            
+
             if (!(scoreDivider>0)){
                 currentScore-=5;
                 scoreDivider=10;

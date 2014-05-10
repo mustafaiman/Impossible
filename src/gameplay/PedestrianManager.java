@@ -59,9 +59,9 @@ public class PedestrianManager {
         for(int i=0;i<pedestrians.size();i++) {
             if( pedestrians.get(i).checkCollision(x, y, width, height) ){
                 if(pedestrians.get(i).isStudent())
-                    score = 40;
+                    score = 200;
                 else
-                    score = 30;
+                    score = 100;
                 pedestrians.remove(i);
             }
         }
