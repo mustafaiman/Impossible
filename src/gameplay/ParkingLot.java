@@ -14,7 +14,7 @@ import java.awt.Toolkit;
 import java.awt.geom.PathIterator;
 
 /**
- *
+ * Represents a single parking lot
  * @author Mustafa
  */
 public class ParkingLot {
@@ -23,6 +23,12 @@ public class ParkingLot {
     private final Rectangle rect;
     private static Image bg; 
     
+    /**
+     * Constructor for ParkingLot. Creates a Rectangle object which will be used
+     * for collision tests. Loads the background image.
+     * @param x x coordinate of the upper-left corner
+     * @param y y coordinate of the upper-left corner
+     */
     public ParkingLot(int x,int y)
     {
         this.x=x;
@@ -31,6 +37,14 @@ public class ParkingLot {
         bg = Toolkit.getDefaultToolkit().getImage("images/lot.png");
     }
 
+    /**
+     * Checks if given rectangle is completely contained by the parking lot.
+     * @param x x coordinate of upper right corner
+     * @param y y coordinate of upper right corner
+     * @param width width of the rectangle
+     * @param height height of the rectangle
+     * @return True if the parking lot completely contains the given rectangle.
+     */
     boolean contains(int x, int y, int width, int height) {
         Rectangle veh = new Rectangle(x+16,y,width,height);
         PathIterator it = veh.getPathIterator(null);
@@ -46,6 +60,10 @@ public class ParkingLot {
         return true;
     }
 
+    /**
+     * Draws the parking lot by placing background image and surrounding it with a border
+     * @param g Graphics object
+     */
     void paintParkingLot(Graphics g) {
         g.drawImage(bg, x, y, width, height, null);
         g.setColor(Color.yellow);
