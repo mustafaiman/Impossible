@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import ui.ScreenManager;
@@ -65,7 +66,36 @@ public class GameplayManager implements KeyListener, ActionListener {
                 vehicleManager.movePCar(2);
                 // handle right
                 break;
+            case KeyEvent.VK_ESCAPE:
+                exit();
+            case KeyEvent.VK_P:
+                pause();
         }
+    }
+    
+    public void pause(){
+        if(displayTimer.isRunning()){
+            displayTimer.stop();
+        }
+        else {
+            displayTimer.start();
+        }
+    }
+    
+    public void exit(){
+        if(displayTimer.isRunning())
+            displayTimer.stop();
+        
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        JOptionPane.showConfirmDialog (null, "Are you sure you want to exit?","Warning",dialogButton);
+
+        if(dialogButton == JOptionPane.YES_OPTION){ 
+            //TODO: nasıl çıkacazzzz
+        }
+        else{
+            displayTimer.start();
+        }
+            
     }
 
     @Override
@@ -108,9 +138,6 @@ public class GameplayManager implements KeyListener, ActionListener {
             super.paintComponent(g);
             pedestrianManager.paintComponent(g);
             vehicleManager.paintComponent(g);
-            
-            
-            
         }
     }
 }
