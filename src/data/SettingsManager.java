@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Manages Settings information on disk
  * @author Ayhun
  */
 public class SettingsManager {
@@ -23,6 +23,9 @@ public class SettingsManager {
     
     Settings settings;
 
+    /**
+     * Constructor of SettingsManager
+     */
     public SettingsManager(){
         try (BufferedReader br = new BufferedReader(new FileReader(settingsFilePath))) {
             settings = new Settings(br.readLine());
@@ -33,10 +36,18 @@ public class SettingsManager {
         }
     }
     
+    /**
+     * Returns a copy of the setting object
+     * @return setting object
+     */
     public Settings readSettings() {
         return settings.copy();
     }
 
+    /**
+     * Saves the setting object to the disk
+     * @param settings Setting object
+     */
     public void saveSettings(Settings settings) {
         FileOutputStream writer = null;
         try {

@@ -7,15 +7,12 @@
 package data;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
- *
+ * Manages High Score information on disk
  * @author Ayhun
  */
 public class HighScoreManager {
@@ -23,6 +20,12 @@ public class HighScoreManager {
     private String targetPath;
     private HighScoreList list;
     
+    /**
+     * Constructor of HighScoreList
+     * @param stage Stage information
+     * @param difficulty Difficulty information
+     * @return returns a HighScoreList object
+     */
     public HighScoreList getHighScores(int stage, int difficulty){
         targetPath = hsPath + stage + "/";
         switch (difficulty){
@@ -45,11 +48,24 @@ public class HighScoreManager {
         
         return list;
     }
-    
+    /**
+     * checks if given score is a high score material in the given stage difficulty pair
+     * @param stage Stage info
+     * @param diff Difficulty level
+     * @param score Score info
+     * @return  returns a boolean value
+     */
     public boolean isHighScore(int stage, int diff, int score){
         return getHighScores(stage, diff).isHighScore(score) ;
     }
     
+    /**
+     * Handles a new High Score.
+     * @param stage Stage info
+     * @param diff Difficulty info
+     * @param score Score info
+     * @param name Name of the person who did that score
+     */
     public void handleHighScore(int stage, int diff, int score, String name){
         getHighScores(stage, diff).handleHighScore(score, name, targetPath);
     }

@@ -13,14 +13,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *
+ * Holds high score information for a single stage difficulty pair
  * @author Ayhun
  */
 public class HighScoreList {
     String [] buffer;
     ArrayList<String> names;
     ArrayList<Integer> scores;
-    
+    /**
+     * Constructor takes a string and parses it to two arrays (names and scores). Input string should have the form "name1,score1,name2,score2..."
+     * @param scoreInfo Input string that will be parsed
+     */
     public HighScoreList(String scoreInfo){
         names = new ArrayList<String>();
         scores = new ArrayList<Integer>();
@@ -32,6 +35,10 @@ public class HighScoreList {
         }
     }
     
+    /**
+     * returns html version of high score info to be printed on a JLabel object
+     * @return 
+     */
     public String toString(){
         String tmp="<html>";
         for(int i = 0; i < names.size();i++){
@@ -41,6 +48,11 @@ public class HighScoreList {
         return tmp;
     }
     
+    /**
+     * Checks if the given score is a high score on current list
+     * @param i score to be tested
+     * @return 
+     */
     public boolean isHighScore(int i){
         if(i==0)
             return false;
@@ -56,10 +68,10 @@ public class HighScoreList {
         return false;
     }
     /**
-     * Denemeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-     * @param score
-     * @param name
-     * @param targetPath 
+     * Handles the given score. (saves it to disk without breaking the decreasing order)
+     * @param score score to be added to list
+     * @param name name of the person who accomplished that score
+     * @param targetPath path of the file in which the handled version of the list to be written
      */
     public void handleHighScore(int score, String name, String targetPath){
         
