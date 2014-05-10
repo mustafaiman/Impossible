@@ -23,8 +23,12 @@ public class PlayerCar extends MobileCar{
     @Override
     public void advance()
     {
-        x = x + (int)(Math.cos(Math.toRadians(direction))*speed);
-        y = y + (int)(-1*Math.sin(Math.toRadians(direction))*speed);
+        int tempx = x + (int)(Math.cos(Math.toRadians(direction))*speed);
+        int tempy = y + (int)(-1*Math.sin(Math.toRadians(direction))*speed);
+        if(tempx <= 750 && tempx >=0)
+            x = tempx;
+        if(tempy <= 570 && tempy >=0)
+            y = tempy;
         
     }
     
