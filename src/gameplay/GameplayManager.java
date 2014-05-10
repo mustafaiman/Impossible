@@ -16,6 +16,7 @@ import java.awt.event.KeyListener;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Path2D;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import ui.ScreenManager;
 
 /**
@@ -24,7 +25,9 @@ import ui.ScreenManager;
  */
 public class GameplayManager implements KeyListener {
     protected PedestrianManager pedestrianManager;
+    protected VehicleManager vehicleManager;
     protected ScreenManager screen;
+    private Timer timer;
     protected GameplayPanel panel;
     public GameplayManager(int level, int difficulty)
     {
@@ -35,16 +38,37 @@ public class GameplayManager implements KeyListener {
         screen.setContentPane(panel);
         panel.requestFocus();
         pedestrianManager = new PedestrianManager(difficulty);
+        vehicleManager = new VehicleManager(0);
+        
         screen.revalidate();
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
-
+    public void keyPressed(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        System.out.println(keyCode);
+        switch( keyCode ) { 
+            case KeyEvent.VK_UP:
+                vehicleManager.movePCar(0);
+                break;
+            case KeyEvent.VK_DOWN:
+                vehicleManager.movePCar(1);
+                // handle down 
+                break;
+            case KeyEvent.VK_LEFT:
+                vehicleManager.movePCar(3);
+                // handle left
+                break;
+            case KeyEvent.VK_RIGHT :
+                vehicleManager.movePCar(2);
+                // handle right
+                break;
+        }
+        panel.repaint();
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyTyped(KeyEvent e) {
         
     }
 
@@ -66,6 +90,7 @@ public class GameplayManager implements KeyListener {
             super.paintComponent(g);
             g.drawRect(275, 265, 50, 70);
             pedestrianManager.paintComponent(g);
+            vehicleManager.paintComponent(g);
             
             
             

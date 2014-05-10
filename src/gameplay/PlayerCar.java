@@ -16,6 +16,17 @@ public class PlayerCar extends MobileCar{
         super(x, y);
     }
     
+    public void advance()
+    {
+        int tempx = x + (int)(-1*Math.sin(Math.toRadians(direction))*speed);
+        int tempy = y + (int)(Math.cos(Math.toRadians(direction))*speed);
+
+        if(tempx <= 800 && tempx >=0)
+            x = tempx;
+        if(tempy <= 600 && tempy >=0)
+            y = tempy;
+    }
+    
     public void accelerate(){
         if (speed > 50)
             return;

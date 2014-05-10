@@ -61,11 +61,18 @@ public class PedestrianManager {
     }
     public int checkCollision(int x, int y, int width, int height, int direction)
     {
-        for(Pedestrian ped : pedestrians) {
-            if( ped.checkCollision(x, y, width, height, direction) )
-                return 1;
+        for(int i=0;i<pedestrians.size();i++) {
+            if( pedestrians.get(i).checkCollision(x, y, width, height, direction) )
+                return i;
         }
-        return 0;
+        return -1;
+    }
+    public int getPedestrianType(int index)
+    {
+        if(pedestrians.get(index) instanceof Student)
+            return 0;
+        else
+            return 1;
     }
     public void paintComponent(Graphics g)
     {

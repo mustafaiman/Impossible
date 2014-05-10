@@ -43,7 +43,8 @@ public class MobileCar extends Vehicle{
     void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D)g;
         g2d.rotate(Math.toRadians(direction));
-        g2d.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/defaultCar.png"), 550, 370, 64, 64, null);
+        g2d.drawImage(Toolkit.getDefaultToolkit().getImage("images/cars/defaultCar.png"), x, y, 64, 64, null);
+        g2d.rotate(Math.toRadians(-direction));
     }
 
     private void changeDirection() {
