@@ -5,6 +5,6 @@ avoiding crashing into other cars or pedestrians.
 
 Feature List
 ----------------
-6 different cars.
-Two different types of pedestrians.
-Highscore system.
+  * 6 different cars.
+  * Two different types of pedestrians.
+  * Highscore system.
